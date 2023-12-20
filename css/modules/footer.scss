@@ -1,0 +1,42 @@
+footer {
+  position: relative;
+  .wp-block-column {
+    // position: relative;
+    // z-index: 1;
+  }
+  #footer-decoration-container {
+    // height: 0;
+    // display: flex;
+    // overflow: visible;
+    // height: 0;
+    figure {
+      // position: relative;
+      // overflow: visible;
+      // height: 0;
+      img {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        right: 0;
+        display: block;
+        // min-width: 20vw;
+      }
+    }
+  }
+  #footer-decoration-mobile,
+  #footer-decoration-desktop {
+    img {
+      // transform: translateY(-50%);
+    }
+  }
+  #footer-decoration-desktop {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+  #footer-decoration-mobile {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+}

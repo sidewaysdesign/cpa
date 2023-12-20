@@ -1,0 +1,97 @@
+:root {
+  --cpa-green: #008941;
+  --cpa-mint: #d6ebe0;
+  --bold: 'Metropolis Bold';
+}
+.wp-block-ub-tabbed-content-holder {
+  &,
+  * {
+    box-sizing: border-box !important;
+  }
+}
+.wp-block-ub-tabbed-content {
+  .wp-block-ub-tabbed-content-tab-holder {
+    display: flex;
+    position: relative;
+  }
+
+  .wp-block-ub-tabbed-content-tabs-title {
+    border: none;
+    gap: 0.875rem !important;
+    flex-direction: column !important;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    @media (min-width: 600px) {
+      margin-bottom: 0;
+      justify-content: center !important;
+      flex-direction: row !important;
+      gap: 0.75rem !important;
+      font-size: 18px;
+    }
+    .wp-block-ub-tabbed-content-tab-content-wrap {
+      border: 10px solid gold !important;
+      @media (min-width: 768px) {
+        padding: 0.625em 3em 0.5em 3em;
+      }
+    }
+    .wp-block-ub-tabbed-content-tab-title-wrap {
+      font-size: 18px;
+      line-height: 1;
+      transition: background-color 0.15s ease-in-out;
+      border: 2px solid var(--cpa-green) !important;
+      border-radius: 6px;
+      justify-content: center;
+      padding: 0.75em 1em 0.6875em 1em;
+      margin: 0;
+      text-align: center;
+      &:not([aria-selected='true']):hover {
+        background-color: var(--cpa-mint) !important;
+      }
+      .wp-block-ub-tabbed-content-tab-title {
+        font-family: var(--bold);
+      }
+      @media (min-width: 600px) {
+        border-bottom-width: 0 !important;
+        border-radius: 10px 10px 0 0;
+        padding: 0.625em 1em 0.5em 1em;
+      }
+      @media (min-width: 768px) {
+        font-size: 18px;
+        padding: 0.625em 1.5em 0.5em 1.5em;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .wp-block-ub-tabbed-content-tabs-content {
+    padding-top: 2.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    border-width: 0 !important;
+    &:before {
+      content: '';
+      width: 100vw;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      height: 0.75rem;
+      border: 2px solid var(--cpa-green);
+      border-left-width: 0;
+      border-right-width: 0;
+    }
+    @media (min-width: 768px) {
+      padding-top: 2.5rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      &:before {
+        height: 1rem;
+      }
+    }
+  }
+}

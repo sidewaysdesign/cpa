@@ -1,0 +1,227 @@
+$x: 375px;
+$x-minus1: 374px;
+$lgxl: 1100px;
+$lgxl-minus1: 1099px;
+$xl: 1260px;
+$xl-minus1: 1259px;
+@mixin atTn {
+  @media (min-width: 31.5rem) {
+    @content;
+  }
+}
+@mixin atTnsm {
+  @media (min-width: 24rem) {
+    @content;
+  }
+}
+@mixin atX {
+  @media (min-width: $x) {
+    @content;
+  }
+}
+@mixin atXsm {
+  @media (min-width: 450px) {
+    @content;
+  }
+}
+@mixin atSm {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin atSmmd {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+@mixin atLgminh {
+  @media (min-width: 45rem) {
+    @content;
+  }
+}
+@mixin atMd {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin atMdPlus {
+  @media (min-width: 830px) {
+    @content;
+  }
+}
+@mixin atMdlg {
+  @media (min-width: 940px) {
+    @content;
+  }
+}
+@mixin atMdmdlg {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+@mixin atLg {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin atLgxl {
+  @media (min-width: $lgxl) {
+    @content;
+  }
+}
+@mixin atXl {
+  @media (min-width: $xl) {
+    @content;
+  }
+}
+@mixin atXxl {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+@mixin overTn {
+  @media (min-width: 26.01rem) {
+    @content;
+  }
+}
+@mixin overTnsm {
+  @media (min-width: 26.01rem) {
+    @content;
+  }
+}
+@mixin overSm {
+  @media (min-width: 30.01rem) {
+    @content;
+  }
+}
+@mixin overSmmd {
+  @media (min-width: 0.5rem) {
+    @content;
+  }
+}
+@mixin overLgminh {
+  @media (min-width: 45.01rem) {
+    @content;
+  }
+}
+@mixin overMd {
+  @media (min-width: 48.01rem) {
+    @content;
+  }
+}
+@mixin overMdlg {
+  @media (min-width: 0.25rem) {
+    @content;
+  }
+}
+@mixin overMdmdlg {
+  @media (min-width: 62.01rem) {
+    @content;
+  }
+}
+@mixin overLg {
+  @media (min-width: 64.01rem) {
+    @content;
+  }
+}
+@mixin overLgxl {
+  @media (min-width: $lgxl) {
+    @content;
+  }
+}
+@mixin overXl {
+  @media (min-width: $Xl) {
+    @content;
+  }
+}
+@mixin overXxl {
+  @media (min-width: 85.01rem) {
+    @content;
+  }
+}
+@mixin uptoX {
+  @media (max-width: 374px) {
+    @content;
+  }
+}
+@mixin uptoSm {
+  @media (max-width: 479px) {
+    @content;
+  }
+}
+@mixin uptoSmmd {
+  @media (max-width: 639px) {
+    @content;
+  }
+}
+@mixin uptoMd {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+@mixin uptoMdplus {
+  @media (max-width: 829px) {
+    @content;
+  }
+}
+@mixin uptoMdlg {
+  @media (max-width: 899px) {
+    @content;
+  }
+}
+@mixin uptoLg {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin twixtSm-Md {
+  @media (min-width: 600px) and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin twixtSmmd-Md {
+  @media (min-width: 640px) and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin twixtSm-MdPlus {
+  @media (min-width: 600px) and (max-width: 829px) {
+    @content;
+  }
+}
+@mixin twixtMd-Xl {
+  @media (min-width: 768px) and (max-width: $xl-minus1) {
+    @content;
+  }
+}
+@mixin twixtMdlg-Lg {
+  @media (min-width: 940px) and (max-width: 1023px) {
+    @content;
+  }
+}
+@mixin twixtMd-Lg {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+@mixin twixtMd-Lgxl {
+  @media (min-width: 768px) and (max-width: $lgxl-minus1) {
+    @content;
+  }
+}
+@mixin twixtMd-Xl {
+  @media (min-width: 768px) and (max-width: $xl-minus1) {
+    @content;
+  }
+}
+@mixin atMdPlus {
+  @media (min-width: 830px) {
+    @content;
+  }
+}
+@mixin uptoM3 {
+  @media (max-width: 843px) {
+    @content;
+  }
+}
+/*# sourceMappingURL=breakpoints.css.map */

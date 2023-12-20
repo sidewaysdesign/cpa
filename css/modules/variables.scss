@@ -1,0 +1,83 @@
+:root {
+  --wp--preset--color--base: #ffffff;
+  --wp--preset--color--base-2: #c7dadf;
+  --wp--preset--color--contrast: #003254;
+  --wp--preset--color--contrast-2: #008941;
+  --wp--preset--color--contrast-3: #006fba;
+  --wp--preset--color--accent: #f1cb00;
+  --wp--preset--color--accent-2: #43b02a;
+  --wp--preset--color--accent-3: #d6ebe0;
+  --wp--preset--color--accent-4: #808080;
+  --wp--preset--color--accent-5: #2d2d2d;
+
+  --spacing: 1.5rem;
+  --spacing-half: 0.75rem;
+
+  --borderradius-tiny: 0.125rem;
+  --borderradius: 0.375rem;
+  --borderradius-large: 0.75rem;
+  --borderradius-huge: 0.75rem;
+
+  --extralight: 300;
+  --light: 400;
+  --regular: 600;
+  --bold: 700;
+  --boxshadow-large: 0 0 2rem rgba(0, 0, 0, 0.5);
+  --boxshadow-large-heavy: 0 0 2rem rgba(0, 0, 0, 0.85);
+
+  --fontsize-tiny: 0.88rem;
+  --fontsize-small: 0.92rem;
+  --fontsize-small-medium: 1rem;
+  --fontsize-medium: 1.125rem;
+  --fontsize-medium-large: 1.5625rem;
+  --fontsize-large: 2.1875rem;
+  --fontsize-x-large: clamp(1.75rem, 3vw, 2.25rem);
+
+  --sitewidth-medium: 780px;
+  --sitewidth-medium-large: 820px;
+  --sitewidth-large: 940px;
+  --sitewidth-xl: 1180px;
+  --sitewidth-xxl: 1320px;
+
+  --lineheight-tiny: 1.15;
+  --lineheight-small: 1.2;
+  --lineheight-medium: 1.35;
+  --lineheight-normal: 1.6;
+  --lineheight-wide: 1.8;
+
+  --text-highlight: 0 0 1px white;
+
+  --margin-mobile: 15px;
+  --margin-x: 1.1875rem;
+  --margin-small: 1.5rem;
+  --margin-smmd: 1.75rem;
+  --margin-small-medium: 1.75rem;
+  --margin-medium: 2rem;
+  --margin-medium-large: 2.25rem;
+  --margin-large: 2.5rem;
+  --margin-xl: 2.75rem;
+
+  --navheight: 64px;
+  --navheight-md: 87px;
+  --navheight-lg: 96px;
+  --navheight-xl: 110px;
+
+  --wp-contentwidth-md: 800px;
+  --wp-contentwidth-lg: 1024px;
+  --fontfam1: 'Metropolis', sans-serif;
+  --fontfam2: 'Metropolis Bold', sans-serif;
+
+  --blockGap: 1.5rem;
+  --zindex-nav: 1002;
+  --zindex-sidebar: 1001;
+
+  --menuwidth-md: 13.5rem;
+  --menuwidth-smmd-margin: calc(14rem + var(--margin-smmd));
+  --menuwidth-md-margin: calc(13.5rem + var(--margin-smmd));
+
+  --menuwidth-lg: 15rem;
+  --menuwidth-lg-margin: calc(15rem + var(--margin-small-medium));
+  --menuwidth-xl-margin: calc(15rem + 5rem);
+  --menutoppadding-md: 2.375rem;
+  --menutoppadding-lg: 3rem;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "cpa-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "dev": "wp-scripts start",
+    "devFast": "wp-scripts start",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/scripts": "^26.17.0",
+    "aria-components": "^0.3.1",
+    "axios": "^1.6.2"
+  }
+}

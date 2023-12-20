@@ -1,0 +1,38 @@
+.wpforms-container {
+  display: block;
+  margin-top: 0 !important;
+  width: 100% !important;
+  .wpforms-field-label {
+    color: white !important;
+  }
+  input,
+  textarea,
+  button {
+    border-radius: 0.6875rem !important;
+  }
+  button {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  .wpforms-field-container {
+    width: 100% !important;
+    .wpforms-field:first-child {
+      padding-top: 0.5rem !important;
+    }
+  }
+  .wpforms-field-medium {
+    max-width: 100% !important;
+    border: none !important;
+    &::placeholder {
+      color: #808080 !important;
+    }
+  }
+  .wpforms-submit-container {
+    padding-top: 0 !important;
+    margin-top: 0.125rem !important;
+  }
+  .wpforms-recaptcha-container {
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+}
