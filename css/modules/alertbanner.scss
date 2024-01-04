@@ -1,0 +1,16 @@
+#alert-banner {
+  --banner-radius: 1rem;
+  border-bottom-left-radius: var(--banner-radius);
+  border-bottom-right-radius: var(--banner-radius);
+  margin-bottom: calc(var(--banner-radius) * -1);
+  box-shadow: 0 calc(var(--banner-radius) * 0.25) calc(var(--banner-radius) * 0.5) rgba(0, 0, 0, 0.15);
+  @media screen and (min-width: 600px) {
+    --banner-radius: 1.5rem;
+  }
+  @media screen and (min-width: 1200px) {
+    --banner-radius: 1.875rem;
+  }
+  @media screen and (min-width: 1320px) {
+    --banner-radius: 2.5rem;
+  }
+}

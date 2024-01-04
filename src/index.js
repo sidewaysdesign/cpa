@@ -1,6 +1,6 @@
 import '../css/style.scss'
 import { PersonnelPopup } from './modules/PersonnelPopup'
-
+import { ComboboxExpander } from './modules/ComboboxExpander'
 // import { SinglePopup } from './modules/SinglePopup'
 // import { ConstructPopup } from './modules/ConstructPopup'
 // import { AwardsVideoLoader } from './modules/AwardsVideoLoader'
@@ -21,6 +21,7 @@ const onReady = () => {
       closeButtonClass: 'personnelpopup--closex'
     }
   ])
+  var comboboxExpander = new ComboboxExpander([{ targetSelector: '.wp-block-details.is-style-popup-menu' }])
   // var constructPopup = new ConstructPopup([{ triggerSelector: '.youtube-popup' }])
   // var awardsVideoLoader = new AwardsVideoLoader([{ targetSelector: '#videoContainer' }])
 }

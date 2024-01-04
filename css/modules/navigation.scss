@@ -1,0 +1,134 @@
+@media screen and (max-width: 900px) {
+  /* hamburger button */
+  .wp-block-navigation__responsive-container-open {
+    display: block !important;
+  }
+
+  /* full menu */
+  .wp-block-navigation__responsive-container:not(.is-menu-open.has-modal-open) {
+    display: none !important;
+  }
+}
+
+header {
+  border-bottom: 1px solid var(--wp--preset--color--contrast-3);
+  nav {
+    .wp-block-navigation__container > .wp-block-navigation-item {
+      font-weight: 600;
+    }
+    .wp-block-navigation-submenu__toggle {
+      display: none !important;
+    }
+    .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style) {
+      & > .wp-block-navigation-item__content {
+        --highlightheight: 6px;
+
+        text-decoration: none;
+        padding-top: 1.875rem;
+        padding-bottom: 1.875rem;
+        position: relative;
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 16px;
+          left: 0;
+          opacity: 0;
+          transform: translateX(50%);
+          transition:
+            opacity 0.15s ease-in-out,
+            width 0.15s ease-in-out,
+            transform 0.15s ease-in-out;
+          background-image: linear-gradient(to bottom, var(--wp--preset--color--contrast-3) 0, var(--wp--preset--color--contrast-3) 50%, transparent 50%, transparent 100%);
+          background:
+            radial-gradient(circle at 100% 0, var(--wp--preset--color--contrast-3) 65%, transparent 75%) no-repeat,
+            radial-gradient(circle at 100% 50%, var(--wp--preset--color--contrast-3) 65%, transparent 75%) no-repeat,
+            radial-gradient(circle at 0 100%, var(--wp--preset--color--contrast-3) 65%, transparent 75%) no-repeat,
+            linear-gradient(to right, transparent, transparent calc(var(--highlightheight) * 0.5), var(--wp--preset--color--contrast-3) var(--highlightheight), var(--wp--preset--color--contrast-3) calc(100% - var(--highlightheight)), transparent calc(100% - var(--highlightheight)), transparent 100%);
+          background-size:
+            var(--highlightheight) 100%,
+            var(--highlightheight) 100%,
+            var(--highlightheight) 100%,
+            100% 100%;
+          background-position:
+            left bottom,
+            calc(var(--highlightheight) * 0.5) bottom,
+            right bottom,
+            center bottom;
+          height: var(--highlightheight);
+          filter: grayscale(100%);
+        }
+        &:before {
+          top: 1em;
+        }
+        &:after {
+          bottom: 1em;
+        }
+        &.current-menu-ancestor {
+          color: var(--wp--preset--color--contrast-3) !important;
+          font-weight: 900 !important;
+          &:before,
+          &:after {
+            filter: none;
+            opacity: 1 !important;
+            font-weight: 900;
+            width: 100%;
+            transform: translateX(0);
+          }
+        }
+      }
+      &:hover {
+        & > .wp-block-navigation-item__content {
+          color: var(--wp--preset--color--contrast-3) !important;
+          &:before,
+          &:after {
+            opacity: 0.25;
+            width: 100%;
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+    @media screen and (min-width: 900px) {
+      .wp-block-navigation__submenu-container {
+        .wp-block-navigation-item__content {
+          padding: 0.6875rem 1.5rem !important;
+          font-weight: 600;
+          &:hover {
+            text-decoration: none !important;
+            .wp-block-navigation-item__label {
+              color: var(--wp--preset--color--contrast-3) !important;
+            }
+          }
+        }
+        & > .wp-block-navigation-link {
+          background-color: transparent !important;
+        }
+
+        & > *:first-child {
+          padding-top: 0.625rem !important;
+        }
+        & > *:last-child {
+          padding-bottom: 0.375rem !important;
+        }
+        left: 50% !important;
+        background-color: white;
+        transform: translate(-50%, 0);
+        border: 1px solid var(--wp--preset--color--contrast-3) !important;
+        border-radius: 0.875rem !important;
+      }
+    }
+    .wp-block-navigation-link {
+      &.current-menu-item {
+        .wp-block-navigation-item__content {
+          cursor: default;
+        }
+        .wp-block-navigation-item__label {
+          font-weight: 900 !important;
+          color: var(--wp--preset--color--contrast-3) !important;
+        }
+      }
+    }
+  }
+}

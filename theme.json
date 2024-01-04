@@ -255,15 +255,9 @@
 					"slug": "system-sans-serif"
 				},
 				{
-					"fontFace": [],
-					"fontFamily": "Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
-					"name": "System Serif",
-					"slug": "system-Serif"
-				},
-				{
 					"fontFace": [
 						{
-							"fontFamily": "Metropolis Light",
+							"fontFamily": "Metropolis",
 							"fontStyle": "normal",
 							"fontWeight": "400",
 							"src": [
@@ -271,19 +265,13 @@
 							]
 						},
 						{
-							"fontFamily": "Metropolis Light",
+							"fontFamily": "Metropolis",
 							"fontStyle": "italic",
 							"fontWeight": "400",
 							"src": [
 								"file:./assets/fonts/metropolis-light_italic_400.woff2"
 							]
-						}
-					],
-					"fontFamily": "Metropolis Light",
-					"slug": "metropolis-light"
-				},
-				{
-					"fontFace": [
+						},
 						{
 							"fontFamily": "Metropolis",
 							"fontStyle": "normal",
@@ -291,15 +279,17 @@
 							"src": [
 								"file:./assets/fonts/metropolis_normal_500.woff2"
 							]
-						}
-					],
-					"fontFamily": "Metropolis",
-					"slug": "metropolis"
-				},
-				{
-					"fontFace": [
+						},
 						{
-							"fontFamily": "Metropolis Bold",
+							"fontFamily": "Metropolis",
+							"fontStyle": "normal",
+							"fontWeight": "600",
+							"src": [
+								"file:./assets/fonts/metropolis-medium_normal_600.woff2"
+							]
+						},
+						{
+							"fontFamily": "Metropolis",
 							"fontStyle": "normal",
 							"fontWeight": "700",
 							"src": [
@@ -307,22 +297,8 @@
 							]
 						}
 					],
-					"fontFamily": "Metropolis Bold",
-					"slug": "metropolis-bold"
-				},
-				{
-					"fontFace": [
-						{
-							"fontFamily": "Metropolis Medium",
-							"fontStyle": "normal",
-							"fontWeight": "600",
-							"src": [
-								"file:./assets/fonts/metropolis-medium_normal_600.woff2"
-							]
-						}
-					],
-					"fontFamily": "Metropolis Medium",
-					"slug": "metropolis-medium"
+					"fontFamily": "Metropolis",
+					"slug": "metropolis"
 				}
 			],
 			"fontSizes": [

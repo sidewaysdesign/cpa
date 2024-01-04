@@ -252,93 +252,101 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 								
 								return $html;   
 							}
-
-
-
+							
+							
+							
 							// Function to enqueue CSS
-if ( !function_exists( 'theme_css' ) ):
-  function theme_css() {
-    wp_enqueue_style( 'theme_cfg_css', trailingslashit( get_stylesheet_directory_uri() ) . 'build/style-index.css', array(), filemtime( get_stylesheet_directory() . '/build/style-index.css' ) );
-  }
-endif;
-
-// Function to enqueue JavaScript
-if ( !function_exists( 'theme_js' ) ):
-  function theme_js() {
-    wp_enqueue_script( 'theme_cfg_js', trailingslashit( get_stylesheet_directory_uri() ) . 'build/index.js', array(), filemtime( get_stylesheet_directory() . '/build/index.js' ), true );
-  }
-endif;
-
-// Enqueue CSS and JS in the front end
-add_action( 'wp_enqueue_scripts', 'theme_css', 10 );
-add_action( 'wp_enqueue_scripts', 'theme_js', 10 );
-
-// Enqueue CSS in the block editor
-add_action( 'enqueue_block_editor_assets', 'theme_css' );
-
-// Exclude certain directories from AI1WM (All-in-One WP Migration) export
-add_filter('ai1wm_exclude_content_from_export', function($exclude_filters) {
-  $exclude_filters[] = 'plugins/*/node_modules';
-  $exclude_filters[] = 'ohja/node_modules';
-  return $exclude_filters;
-});
-
-add_filter( 'ai1wm_exclude_themes_from_export', function ( $exclude_filters ) {
-  $exclude_filters[] = 'ohja/node_modules';
-  return $exclude_filters;
-} );
-
-
-// ACF CUSTOM POST TYPES
-
-add_action('acf/init', 'my_acf_init_block_types');
-function my_acf_init_block_types() {
-  // Check function exists.
-  if( function_exists('acf_register_block_type') ) {
-    // register a testimonial block.
-    
-  //   acf_register_block_type( array( 'name' => 'conditional-archive-title',
-  //   'title'             => __('Conditional Archive Title'),
-  //   'description'       => __('Adds title label and year depending on post type (news or article).'),
-  //   'render_template'	=> 'blocks/conditional-archive-title/conditional-archive-title.php',
-  //   'mode'			=> 'preview',
-  //   'supports'		=> [
-  //     'align'			=> false,
-  //     'anchor'		=> true,
-  //     'customClassName'	=> true,
-  //     'jsx' 			=> true,
-  //   ],
-  //   'keywords'          => array( 'conditional', 'archive', 'title' )
-    
-  // ));
-  
-  
-  acf_register_block_type( array(
-    'name'              => 'conditional-archive-sidebar',
-    'title'             => __('Conditional Archive Sidebar'),
-    'description'       => __('Shows sidebar depending on post type (news or article).'),
-    'render_template'	=> 'blocks/conditional-archive-sidebar/conditional-archive-sidebar.php',
-    'mode'			=> 'preview',
-    'supports'		=> [
-      'align'			=> false,
-      'anchor'		=> true,
-      'customClassName'	=> true,
-      'jsx' 			=> true,
-    ],
-    'keywords'          => array( 'conditional', 'archive', 'sidebar' )
-  ));
-  
-  acf_register_block_type( array(
-    'name'              => 'expertise-listing',
-    'title'             => __('Expertise Listing'),
-    'description'       => __('Auto-populated listing of team members, segmented by role.'),
-    'render_template'   => 'blocks/expertise-listing/expertise-listing.php',
-    'category'          => 'formatting',
-    'icon'              => 'editor-ul',
-    'keywords'          => array( 'expertise', 'listing' )
-    )
-  );
-  
-    
-  }
-}
+							if ( !function_exists( 'theme_css' ) ):
+								function theme_css() {
+									wp_enqueue_style( 'theme_cfg_css', trailingslashit( get_stylesheet_directory_uri() ) . 'build/style-index.css', array(), filemtime( get_stylesheet_directory() . '/build/style-index.css' ) );
+								}
+							endif;
+							
+							// Function to enqueue JavaScript
+							if ( !function_exists( 'theme_js' ) ):
+								function theme_js() {
+									wp_enqueue_script( 'theme_cfg_js', trailingslashit( get_stylesheet_directory_uri() ) . 'build/index.js', array(), filemtime( get_stylesheet_directory() . '/build/index.js' ), true );
+								}
+							endif;
+							
+							// Enqueue CSS and JS in the front end
+							add_action( 'wp_enqueue_scripts', 'theme_css', 10 );
+							add_action( 'wp_enqueue_scripts', 'theme_js', 10 );
+							
+							// Enqueue CSS in the block editor
+							add_action( 'enqueue_block_editor_assets', 'theme_css' );
+							
+							// Exclude certain directories from AI1WM (All-in-One WP Migration) export
+							add_filter('ai1wm_exclude_content_from_export', function($exclude_filters) {
+								$exclude_filters[] = 'plugins/*/node_modules';
+								$exclude_filters[] = 'ohja/node_modules';
+								return $exclude_filters;
+							});
+							
+							add_filter( 'ai1wm_exclude_themes_from_export', function ( $exclude_filters ) {
+								$exclude_filters[] = 'ohja/node_modules';
+								return $exclude_filters;
+							} );
+							
+							
+							// ACF CUSTOM POST TYPES
+							
+							add_action('acf/init', 'my_acf_init_block_types');
+							function my_acf_init_block_types() {
+								// Check function exists.
+								if( function_exists('acf_register_block_type') ) {
+									// register a testimonial block.
+									
+									//   acf_register_block_type( array( 'name' => 'conditional-archive-title',
+									//   'title'             => __('Conditional Archive Title'),
+									//   'description'       => __('Adds title label and year depending on post type (news or article).'),
+									//   'render_template'	=> 'blocks/conditional-archive-title/conditional-archive-title.php',
+									//   'mode'			=> 'preview',
+									//   'supports'		=> [
+										//     'align'			=> false,
+										//     'anchor'		=> true,
+										//     'customClassName'	=> true,
+										//     'jsx' 			=> true,
+										//   ],
+										//   'keywords'          => array( 'conditional', 'archive', 'title' )
+										
+										// ));
+										
+										
+										acf_register_block_type( array(
+											'name'              => 'conditional-archive-sidebar',
+											'title'             => __('Conditional Archive Sidebar'),
+											'description'       => __('Shows sidebar depending on post type (news or article).'),
+											'render_template'	=> 'blocks/conditional-archive-sidebar/conditional-archive-sidebar.php',
+											'mode'			=> 'preview',
+											'supports'		=> [
+												'align'			=> false,
+												'anchor'		=> true,
+												'customClassName'	=> true,
+												'jsx' 			=> true,
+											],
+											'keywords'          => array( 'conditional', 'archive', 'sidebar' )
+										));
+										
+										acf_register_block_type( array(
+											'name'              => 'expertise-listing',
+											'title'             => __('Expertise Listing'),
+											'description'       => __('Auto-populated listing of team members, segmented by role.'),
+											'render_template'   => 'blocks/expertise-listing/expertise-listing.php',
+											'category'          => 'formatting',
+											'icon'              => 'editor-ul',
+											'keywords'          => array( 'expertise', 'listing' )
+											)
+										);
+										acf_register_block_type( array(
+											'name'              => 'expertise-listing',
+											'title'             => __('Alert Banner'),
+											'description'       => __('Alert Banner'),
+											'render_template'   => 'blocks/alert-banner/alert-banner.php',
+											'category'          => 'formatting',
+											'icon'              => 'editor-ul',
+											'keywords'          => array( 'alert', 'banner' )
+											)
+										);
+									}
+								}

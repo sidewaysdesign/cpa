@@ -1,0 +1,6 @@
+.wp-block-button__link.has-background {
+  // change hover effect to filter to work with all colors
+  a:hover {
+    filter: brightness(90%);
+  }
+}

@@ -1,0 +1,61 @@
+/* Note: this is in plain CSS in the plugin CPA Block Enhancements */
+.wp-block-details.is-style-popup-menu {
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  .wp-block-buttons {
+    margin: 0;
+    gap: 0;
+  }
+  .wp-block-button {
+    &__link {
+      padding: 0.75rem 1rem 0.75rem 1.25rem;
+      border-radius: 0;
+      transition: color 0.15s ease-in-out;
+      color: var(--wp--preset--color--accent-5) !important;
+      &:hover {
+        color: var(--wp--preset--color--contrast-3) !important;
+      }
+    }
+  }
+  summary {
+    position: relative;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: var(--wp--preset--color--contrast);
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    &:after {
+      transform: rotate(-90deg);
+      content: '';
+      background: url('data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMi4zMCAxMC43NSI+IDxkZWZzPiA8c3R5bGU+IC5jbHMtMSB7IGZpbGw6ICNmZmY7IHN0cm9rZS13aWR0aDogMHB4OyB9IDwvc3R5bGU+IDwvZGVmcz4gPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTEuMTUsMTAuNzVjLS41NjQsMC0xLjEwLS4xNzg3LTEuNTUtLjUxNzZMLjgyOTcsMy43MEMuMzc2NiwzLjM2LjA4MDcsMi44NC4wMTQ4LDIuMjktLjA1MjYsMS43Mi4xMTE1LDEuMTcuNDc2Ny43M2MuMzg0My0uNDY0OC45NS0uNzMyNCwxLjU3LS43MzI0LjQ1LDAsLjkwNDMuMTQsMS4yNi40MTg5bDcuODMsNS44M0wxOC45OC40MjA0Yy4zNjUyLS4yNzEuODEtLjQyMDQsMS4yNy0uNDIwNC42MSwwLDEuMTkuMjY2NiwxLjU3LjczMS4zNi40NDI0LjUyLjk5NjEuNDYsMS41Ni0uMDY2NC41Ni0uMzYzMywxLjA3LS44MTQ1LDEuNDBsLTguNzcsNi41M2MtLjQ1MTIuMzMtLjk4NjMuNTEtMS41NC41MTM3WiIvPjwvc3ZnPg==') no-repeat;
+      background-position: center;
+      width: 1.0625em;
+      height: 1.5em;
+      position: absolute;
+      right: 1rem;
+      transition: transform 0.3s ease-in-out;
+    }
+    &::marker {
+      content: none;
+    }
+    & + *:first-of-type {
+      &:before {
+        content: '';
+        background-color: var(--wp--preset--color--accent-4);
+        width: 100%;
+        height: 1rem;
+        position: absoluite;
+        top: -1rem;
+      }
+    }
+  }
+  &[open] {
+    summary::after {
+      transform: rotate(0);
+    }
+  }
+}

@@ -217,7 +217,7 @@
       line-height: var(--lineheight-tiny);
       font-size: var(--fontsize-medium);
       color: black;
-      font-weight: var(--font-light);
+      font-weight: 400;
       text-decoration: none;
       padding: calc(var(--wp--custom--spacing--unit) * 0.5) 0;
       &.active {
