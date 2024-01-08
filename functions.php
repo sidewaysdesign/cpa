@@ -19,6 +19,9 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 	* @since CPA 1.0
 	* @return void
 	*/
+	
+	
+	
 	function cpa_block_styles() {
 		
 		register_block_style(
@@ -328,16 +331,16 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 											'keywords'          => array( 'conditional', 'archive', 'sidebar' )
 										));
 										
-										acf_register_block_type( array(
-											'name'              => 'expertise-listing',
-											'title'             => __('Expertise Listing'),
-											'description'       => __('Auto-populated listing of team members, segmented by role.'),
-											'render_template'   => 'blocks/expertise-listing/expertise-listing.php',
-											'category'          => 'formatting',
-											'icon'              => 'editor-ul',
-											'keywords'          => array( 'expertise', 'listing' )
-											)
-										);
+										// acf_register_block_type( array(
+										// 	'name'              => 'expertise-listing',
+										// 	'title'             => __('Expertise Listing'),
+										// 	'description'       => __('Auto-populated listing of team members, segmented by role.'),
+										// 	'render_template'   => 'blocks/expertise-listing/expertise-listing.php',
+										// 	'category'          => 'formatting',
+										// 	'icon'              => 'editor-ul',
+										// 	'keywords'          => array( 'expertise', 'listing' )
+										// 	)
+										// );
 										acf_register_block_type( array(
 											'name'              => 'expertise-listing',
 											'title'             => __('Alert Banner'),
@@ -350,3 +353,73 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 										);
 									}
 								}
+								
+								function render_category_block( $atts ) {
+									// Get the current post
+									$post = get_post();
+									if ($post->post_type !== 'post') { return; }
+									// Get the categories of the current post
+									$categories = get_the_category( $post->ID );
+
+									// Define the category colors and foreground colors
+									$category_colors = array(
+										'article' => array('bg' => 'var(--wp--preset--color--contrast-2)', 'fg' => 'white'),
+										'report' => array('bg' => 'var(--wp--preset--color--contrast-3)', 'fg' => 'white'),
+										'default' => array('bg' => 'var(--wp--preset--color--custom-accent-yellow)', 'fg' => 'black')
+									);
+									
+									$translation_table = array(
+										'en' => array(
+											'Article' => 'Article',
+											'Report' => 'Report',
+											// Add more translations as needed
+										),
+										'fr' => array(
+											'Article' => 'Article',
+											'Report' => 'Rapport',
+											// Add more translations as needed
+										),
+									);
+									if ( ! empty( $categories ) ) {
+										$category_name_orig = $categories[0]->name ? :	'';
+										$category_name = strtolower($category_name_orig);
+										$category_colors = isset($category_colors[$category_name]) ? $category_colors[$category_name] : $category_colors['default'];
+										$category_link = get_category_link( $categories[0]->term_id );
+										
+										if (function_exists('pll_current_language')) {
+											$current_language = pll_current_language();
+											if (isset($translation_table[$current_language][$category_name_orig])) {
+												$category_name = $translation_table[$current_language][$category_name_orig];
+											}
+										}
+										return sprintf(
+											'<button style="background-color: %s; color: %s;" aria-label="Category: %s">%s</button>',
+											$category_colors['bg'],
+											$category_colors['fg'],
+											esc_attr($category_name_orig),
+											esc_html($category_name_orig)
+										);
+										// return sprintf(
+										// 	'<a style="" href="%s"><button style="background-color: %s; color: %s;" aria-label="Category: %s">%s</button></a>',
+										// 	$category_link,
+										// 	$category_colors['bg'],
+										// 	$category_colors['fg'],
+										// 	esc_attr($category_name_orig),
+										// 	esc_html($category_name_orig)
+										// );
+									} else {
+										$category_colors = $category_colors['default'];
+										$category_link = '#';
+									}
+									
+									// Return the block's HTML with the category color, foreground color and link
+								}
+								
+								add_shortcode('category_block', 'render_category_block');
+
+								remove_filter('the_content', 'wpautop');
+add_filter('the_content', 'wpautop', 99);
+add_filter('the_content', 'shortcode_unautop', 100);
+
+// Trim excerpts to 20 words
+add_filter( 'excerpt_length', function() { return 30; }, 999 );

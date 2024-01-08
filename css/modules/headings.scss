@@ -11,7 +11,8 @@
     }
   }
 }
-h1 {
+// body:not(.single-post) {
+:not(.single-post) h1 {
   .wp-block-post-content &,
   .wp-block-post-content &.wp-block-heading {
     font-size: 2.25rem !important;
@@ -35,6 +36,31 @@ h1 {
     }
   }
 }
+h1.blog-title {
+  font-size: 2.25rem !important;
+  text-align: left;
+  // font-size: clamp(2vw, 2.5625rem, 5.125vw) !important;
+
+  line-height: 1.13;
+  @media screen and (min-width: 475px) {
+    font-size: 2.5625rem !important;
+  }
+  @media screen and (min-width: 782px) {
+    text-align: center;
+    font-size: 3.125rem !important;
+    font-size: clamp(4vw, 3.875rem, 5.125vw) !important;
+  }
+  // @media screen and (min-width: 1024px) {
+  //   font-size: 3rem !important;
+  //   font-size: clamp(5vw, 3rem, 7vw) !important;
+  // }
+  @media screen and (min-width: 1200px) {
+    font-size: 4.0625rem !important;
+    font-size: clamp(3w, 14.0625rem, 4.75vw) !important;
+  }
+}
+// }
+
 h2 {
   .wp-block-post-content &,
   .wp-block-post-content &.wp-block-heading {

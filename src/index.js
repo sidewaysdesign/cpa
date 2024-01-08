@@ -1,12 +1,8 @@
 import '../css/style.scss'
 import { PersonnelPopup } from './modules/PersonnelPopup'
 import { ComboboxExpander } from './modules/ComboboxExpander'
-// import { SinglePopup } from './modules/SinglePopup'
-// import { ConstructPopup } from './modules/ConstructPopup'
-// import { AwardsVideoLoader } from './modules/AwardsVideoLoader'
-
-// import { MobileAccordionSections } from './modules/MobileAccordionSections'
-// import { MobileMenu } from './modules/MobileMenu'
+import { SocialCopyToClipboardLink } from './modules/SocialCopyToClipboardLink'
+import { AddAriaHidden } from './modules/AddAriaHidden'
 
 const onReady = () => {
   if (location.hostname === 'localhost' || location.hostname.includes('ohja-update.local')) {
@@ -22,6 +18,8 @@ const onReady = () => {
     }
   ])
   var comboboxExpander = new ComboboxExpander([{ targetSelector: '.wp-block-details.is-style-popup-menu' }])
+  var socialCopyToClipboardLink = new SocialCopyToClipboardLink([{ targetSelector: '.wp-block-social-links' }])
+  var addAriaHidden = new AddAriaHidden([{ targetSelector: '.is-style-aria-hidden' }])
   // var constructPopup = new ConstructPopup([{ triggerSelector: '.youtube-popup' }])
   // var awardsVideoLoader = new AwardsVideoLoader([{ targetSelector: '#videoContainer' }])
 }

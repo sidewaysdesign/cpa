@@ -1,0 +1,19 @@
+.wp-block-post-date.is-style-aria-hidden {
+  @media screen and (max-width: 781px) {
+    margin-bottom: -0.5rem;
+    text-align: left !important;
+  }
+  @media screen and (min-width: 782px) {
+    display: none;
+  }
+}
+.mobile-hide-post-date {
+  @media screen and (max-width: 781px) {
+    display: none;
+  }
+}
+.mobile-justify-left {
+  @media screen and (max-width: 781px) {
+    justify-content: flex-start !important;
+  }
+}

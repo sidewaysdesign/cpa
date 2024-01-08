@@ -1,0 +1,25 @@
+#blog-social-share {
+  flex-direction: row;
+  margin-top: 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  row-gap: 0.5rem;
+  &:before {
+    flex: 1 0 100%;
+    content: 'Share';
+    display: block;
+    font-size: 0.8rem;
+    line-height: 1;
+    font-family: var(--wp--preset--font-family--metropolis);
+  }
+  html[lang*='fr'] &:before {
+    content: 'Partager';
+  }
+  @media screen and (min-width: 1000px) {
+    row-gap: 0.875rem;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: calc(100% + 1rem);
+  }
+}

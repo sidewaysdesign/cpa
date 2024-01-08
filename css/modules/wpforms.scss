@@ -1,10 +1,12 @@
 .wpforms-container {
-  display: block;
-  margin-top: 0 !important;
-  width: 100% !important;
+  // styling for all form instances
   font-family: var(--wp--preset--font-family--metropolis);
-  .wpforms-field-label {
-    color: white !important;
+  .wpforms-field-medium {
+    max-width: 100% !important;
+    border: none !important;
+    &::placeholder {
+      color: #808080 !important;
+    }
   }
   input,
   textarea,
@@ -15,17 +17,18 @@
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
   }
+}
+footer .wpforms-container {
+  display: block;
+  margin-top: 0 !important;
+  width: 100% !important;
+  .wpforms-field-label {
+    color: white !important;
+  }
   .wpforms-field-container {
     width: 100% !important;
     .wpforms-field:first-child {
       padding-top: 0.5rem !important;
-    }
-  }
-  .wpforms-field-medium {
-    max-width: 100% !important;
-    border: none !important;
-    &::placeholder {
-      color: #808080 !important;
     }
   }
   .wpforms-submit-container {
@@ -35,5 +38,53 @@
   .wpforms-recaptcha-container {
     padding: 0 !important;
     overflow: hidden !important;
+  }
+}
+
+.form-newsletter-blog {
+  .wpforms-form {
+    @media screen and (min-width: 600px) {
+      display: flex !important;
+      align-items: center;
+      justify-content: stretch;
+      height: 100%;
+      & > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .wpforms-field {
+        padding: 0 !important;
+      }
+      input[type='email'],
+      button[type='submit'] {
+        min-height: 48px;
+      }
+      input[type='email'] {
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+      }
+      .wpforms-container {
+        display: block;
+        width: 100% !important;
+      }
+      .wpforms-field-container {
+        flex-grow: 1;
+        flex-basis: 100%;
+      }
+      .wpforms-field-container,
+      .wpforms-submit-container {
+        padding-top: 15px !important;
+        margin: 0 !important;
+      }
+      .wpforms-submit-container {
+        position: relative;
+      }
+      button[type='submit'] {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        background-color: var(--wp--preset--color--contrast) !important;
+        white-space: nowrap !important;
+      }
+    }
   }
 }
