@@ -14,3 +14,9 @@
     --banner-radius: 2.5rem;
   }
 }
+#alert-banner .wp-block-post-template-is-layout-flow {
+  padding-top: var(--wp--preset--spacing--20);
+  padding-right: var(--wp--preset--spacing--30);
+  padding-bottom: var(--wp--preset--spacing--20);
+  padding-left: var(--wp--preset--spacing--30);
+}

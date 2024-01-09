@@ -8,3 +8,14 @@ body {
 main.wp-block-group {
   margin-top: 0;
 }
+.wpforms-recaptcha-container {
+  display: none;
+}
+main > *:last-child {
+  &:after {
+    display: block;
+    content: '';
+    width: 10px;
+    height: 70px;
+  }
+}

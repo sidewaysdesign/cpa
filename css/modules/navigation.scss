@@ -1,4 +1,22 @@
-@media screen and (max-width: 900px) {
+:root {
+  --nav-minheight: 60px;
+  --nav-padding: 0.25rem;
+  --logo-width: 170px;
+  @media screen and (min-width: 600px) {
+    --logo-width: 188px;
+    --nav-minheight: 78px;
+    --nav-padding: 0.75rem;
+  }
+  @media screen and (min-width: 1080px) {
+    --logo-width: inherit;
+    --nav-padding: 0.8125rem;
+    --nav-minheight: 114px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  /* NAV BREAKPOINT CONTROL */
+
   /* hamburger button */
   .wp-block-navigation__responsive-container-open {
     display: block !important;
@@ -12,6 +30,14 @@
 
 header {
   border-bottom: 1px solid var(--wp--preset--color--contrast-3);
+  min-height: var(--nav-minheight);
+  & > .wp-block-group.has-global-padding {
+    padding-top: var(--nav-padding) !important;
+    padding-bottom: var(--nav-padding) !important;
+    @media screen and (max-width: 767px) {
+    }
+  }
+
   nav {
     .wp-block-navigation__container > .wp-block-navigation-item {
       font-weight: 600;
@@ -19,10 +45,24 @@ header {
     .wp-block-navigation-submenu__toggle {
       display: none !important;
     }
+    .wp-block-navigation__container > .wp-block-navigation-item {
+      @media screen and (min-width: 768px) and (max-width: 1080px) {
+        /* TOP-LEVEL NAV ITEM FONT-SIZE UP TO 1024PX */
+        &,
+        & > .wp-block-navigation-item__content,
+        & .wp-block-navigation-item__label {
+          font-size: 0.86rem !important;
+        }
+      }
+    }
     .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style) {
-      & > .wp-block-navigation-item__content {
-        --highlightheight: 6px;
+      // & > .wp-block-navigation-item__content,
+      // & > .wp-block-navigation-item > .wp-block-navigation-item__label {
+      // }
 
+      & > .wp-block-navigation-item__content {
+        /* TOP-LEVEL NAV ITEM CONTENTS */
+        --highlightheight: 6px;
         text-decoration: none;
         padding-top: 1.875rem;
         padding-bottom: 1.875rem;
@@ -131,4 +171,8 @@ header {
       }
     }
   }
+}
+.wp-block-site-logo {
+  width: var(--logo-width);
+  min-width: var(--logo-width);
 }

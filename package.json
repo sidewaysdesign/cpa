@@ -8,7 +8,8 @@
     "start": "wp-scripts start",
     "dev": "wp-scripts start",
     "devFast": "wp-scripts start",
-    "packages-update": "wp-scripts packages-update"
+    "packages-update": "wp-scripts packages-update",
+    "sync": "concurrently \"browser-sync start --proxy 'cpa-plan.local' --files 'build/*.css' --external\" \"wp-scripts start\" --names \">BS,WS<\" --prefix-colors \"blue,green\""
   },
   "keywords": [],
   "author": "",
