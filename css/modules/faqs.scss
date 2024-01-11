@@ -1,0 +1,86 @@
+.wp-block-details {
+  --faq-indent: 2.5rem;
+  &.is-style-faqs-green,
+  &.is-style-faqs-blue {
+    position: relative;
+    & {
+      summary {
+        padding-left: var(--faq-indent);
+        font-weight: 600;
+        &::marker {
+          content: '';
+        }
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: calc(var(--faq-indent) - 2em);
+          top: 0.6em;
+          width: 1em;
+          height: 2px;
+          background-color: var(--faq-color);
+          transform-origin: center center;
+          transform: rotate(0);
+          transition:
+            opacity 0.3s ease-in-out,
+            transform 0.3s ease-in-out;
+        }
+        &::after {
+          opacity: 0;
+        }
+        & ~ * {
+          animation: fadeOutMoveUp 0.3s ease-in-out reverse;
+          opacity: 0;
+          transform: translateY(-0.5em);
+          padding-left: var(--faq-indent);
+          transition:
+            opacity 0.3s ease-in-out,
+            transform 0.3s ease-in-out,
+            max-height 0.3s ease-in-out;
+          transition-delay: 0, 0.15s, 0;
+          max-height: 0;
+        }
+      }
+    }
+
+    &[open] {
+      summary {
+        &::after {
+          opacity: 1;
+          transform: rotate(90deg);
+        }
+        & ~ * {
+          animation: fadeInMoveDown 0.3s ease-in-out forwards;
+          max-height: 40px;
+        }
+      }
+    }
+  }
+  &.is-style-faqs-green {
+    --faq-color: var(--wp--preset--color--contrast-2);
+  }
+  &.is-style-faqs-blue {
+    --faq-color: var(--wp--preset--color--contrast-3);
+  }
+}
+
+@keyframes fadeInMoveDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.5em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOutMoveUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-0.5em) scaleY(0);
+  }
+}

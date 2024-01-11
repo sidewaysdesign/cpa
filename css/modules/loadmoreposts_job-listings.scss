@@ -1,0 +1,101 @@
+.loadmoreposts-job-openings {
+  &__block {
+    max-width: 1230px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  &__container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1230px !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    width: 100%;
+    position: relative;
+    padding-bottom: 2rem;
+    @media (min-width: 600px) {
+      flex-direction: row;
+    }
+    .is-style-outline-arrow {
+      .wp-block-button__link {
+        border: 1px solid var(--wp--preset--color--contrast-2);
+        padding-top: calc(0.6rem + 1px);
+        padding-right: calc(1rem - 1px);
+        padding-bottom: calc(0.7rem - 1px);
+        padding-left: calc(1rem - 1px);
+        background-color: transparent;
+        background-image: none;
+        border-color: currentColor;
+        color: currentColor;
+        &:hover,
+        &:focus {
+          color: white !important;
+          background-color: var(--wp--preset--color--contrast-2);
+        }
+      }
+    }
+  }
+  &__title {
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem;
+    a {
+      font-size: 1.75rem;
+      text-decoration: none;
+    }
+  }
+  &__unit {
+    box-sizing: border-box;
+    border: 1px solid var(--wp--preset--color--contrast-3);
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    display: flex;
+    // gap: 1.5rem;
+    flex-basis: calc(50% - 0.75rem);
+
+    .wp-block-button.is-style-outline-arrow {
+      padding-left: 0;
+      margin-bottom: 0;
+      padding-bottom: 0 !important;
+    }
+  }
+
+  &__header {
+    flex-basis: 120px;
+    // styles for .loadmoreposts-event__unit__header
+    @media screen and (min-width: 600px) {
+      flex-basis: 180px;
+    }
+  }
+  &__date {
+    font-family: var(--wp--preset--font-family--metropolis);
+    color: var(--wp--preset--color--contrast-3);
+    font-size: 0.88rem;
+  }
+  &__main {
+    flex: 1;
+  }
+  &__content {
+    padding: 0 0 0.5rem 0;
+    & + .wp-block-button {
+      margin-top: 1rem;
+    }
+  }
+  &__jobtype {
+    font-family: var(--wp--preset--font-family--metropolis);
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: rgb(128, 128, 128);
+  }
+  &__title {
+    font-size: 2.15rem !important;
+    color: black;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+}

@@ -15,8 +15,11 @@
       margin-left: auto;
       margin-right: auto;
       position: absolute;
-      transform: translateY(-3rem);
+      transform: translateY(-2.6375rem);
       right: 0;
+    }
+    @media screen and (min-width: 1280px) {
+      transform: translateY(-2.875rem);
     }
   }
   &__unit {

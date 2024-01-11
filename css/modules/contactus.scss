@@ -1,0 +1,14 @@
+.contact-formrow {
+  margin-top: 0;
+  @media screen and (max-width: 781px) {
+    background-color: var(--wp--preset--color--accent-3);
+    padding-bottom: 2rem !important;
+    .wp-block-columns > .wp-block-column:first-child {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 782px) {
+    background-color: transparent;
+    margin-top: -13.5rem !important;
+  }
+}
