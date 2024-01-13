@@ -1,18 +1,19 @@
-@import 'breakpoints';
+@import "breakpoints";
 
 :root {
   --wp--preset--color--tertiary: orange;
   --inner-margin: 1.5rem;
-  --radius-tlbr-small: 1rem 0 1rem 0;
-  --radius-tlbr-medium: 1.875rem 0 1.875rem 0;
+  --radius-tlbr-small: 0.625rem;
+  --radius-tlbr-medium: 1rem;
   --radius-medium: 1.875rem;
   --radius-tlbr-large: 2.5rem 0 2.5rem 0;
   --radius-large: 3.75rem;
   --radius-tlbr-huge: 3.75rem 0 3.75rem 0;
-  --font-light: 'Metropolis Light', sans-serif;
-  --font-medium: 'Metropolis Medium', sans-serif;
+  --font-light: "Metropolis Light", sans-serif;
+  --font-medium: "Metropolis Medium", sans-serif;
 }
 .personnelcard--wrapper {
+  cursor: pointer;
   width: 100%;
   display: inline-block;
   @include atMd {
@@ -26,7 +27,8 @@
   text-decoration: none;
 }
 .personnelcard--unit {
-  padding: var(--wp--custom--spacing--unit) 0 calc(var(--wp--custom--spacing--unit) * 0.5) 0;
+  padding: var(--wp--custom--spacing--unit) 0
+    calc(var(--wp--custom--spacing--unit) * 0.5) 0;
   margin: 0 0 calc(var(--wp--custom--spacing--unit) * 0.5) 0;
   text-align: left;
   flex: 1 1 auto;
@@ -83,7 +85,7 @@
     width: 200px;
   }
   @include atLg {
-    border-radius: var(--radius-tlbr-large);
+    // border-radius: var(--radius-tlbr-large);
   }
   &:before,
   &:after {
@@ -94,26 +96,26 @@
   &:before {
     top: 0;
     height: 100%;
-    content: '';
+    content: "";
     transition: 0.3s all ease-in-out;
   }
-  &:after {
-    box-sizing: border-box;
-    bottom: 0;
-    height: auto;
-    content: 'Read Bio';
-    font-weight: 400;
-    display: block;
-    line-height: 1;
-    padding: calc(var(--wp--custom--spacing--unit) * 0.75) calc(var(--wp--custom--spacing--unit) * 0.5) calc(var(--wp--custom--spacing--unit) * 0.25) calc(var(--wp--custom--spacing--unit) * 0.5);
-    align-items: flex-end;
-    transition:
-      0.15s padding ease-in,
-      0.375s opacity ease-in-out,
-      0.45s color ease-in-out;
-    opacity: 0;
-    color: transparent;
-  }
+  // &:after {
+  //   box-sizing: border-box;
+  //   bottom: 0;
+  //   height: auto;
+  //   content: 'Read Bio';
+  //   font-weight: 400;
+  //   display: block;
+  //   line-height: 1;
+  //   padding: calc(var(--wp--custom--spacing--unit) * 0.75) calc(var(--wp--custom--spacing--unit) * 0.5) calc(var(--wp--custom--spacing--unit) * 0.25) calc(var(--wp--custom--spacing--unit) * 0.5);
+  //   align-items: flex-end;
+  //   transition:
+  //     0.15s padding ease-in,
+  //     0.375s opacity ease-in-out,
+  //     0.45s color ease-in-out;
+  //   opacity: 0;
+  //   color: transparent;
+  // }
   &:hover {
     filter: grayscale(0%);
     &:after {
@@ -131,7 +133,8 @@
 .personnelcard--image,
 .personnelpopup--image {
   &.empty-image {
-    background: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="42.287" r="8.257" style="fill:none;stroke:%232f1360;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"/><path d="M65.541,66.085a15.528,15.528,0,0,0-8.5-13.844" style="fill:none;stroke:%232f1360;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"/><path d="M42.963,52.241a15.528,15.528,0,0,0-8.5,13.844" style="fill:none;stroke:%232f1360;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"/><rect width="100" height="100" style="fill:none"/></svg>') no-repeat;
+    background: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="42.287" r="8.257" style="fill:none;stroke:%232f1360;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"/><path d="M65.541,66.085a15.528,15.528,0,0,0-8.5-13.844" style="fill:none;stroke:%232f1360;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"/><path d="M42.963,52.241a15.528,15.528,0,0,0-8.5,13.844" style="fill:none;stroke:%232f1360;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"/><rect width="100" height="100" style="fill:none"/></svg>')
+      no-repeat;
     background-size: contain;
     background-position: center;
     background-color: var(--wp--preset--color--tertiary);
@@ -142,6 +145,7 @@
 }
 .personnelcard--name {
   margin: 0;
+  margin-top: 0 !important;
   color: white !important;
   text-align: center;
   line-height: 1;
@@ -280,19 +284,24 @@
     }
   }
   &--container {
+    box-sizing: border-box;
     position: relative;
     background: white !important;
     color: var(--wp--preset--color--background);
     width: 500px;
-    max-width: calc(100vw - 4rem);
     padding: var(--inner-margin);
-    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.85);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.45);
     transition: 0.5s all ease-in-out;
     margin-top: -0.5rem;
     overflow: auto;
     border-radius: var(--radius-medium);
     border: 2px solid var(--cpa-green);
-
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100vw - 30px);
+    @include atMd {
+      width: 500px;
+    }
     @include uptoSmmd {
       max-height: calc(100vh - var(--navheight) - var(--margin-mobile) * 2);
       top: var(--navheight);
@@ -357,7 +366,7 @@
     }
   }
   &--name {
-    margin: 0 0 0.3125rem 0;
+    margin: 0 0 0.125rem 0;
     color: var(--cpa-green);
   }
   &--role {
@@ -393,14 +402,17 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1.125rem;
+    display: flex;
+    justify-content: flex-start !important;
+
     @include atX {
       flex-direction: row;
       justify-content: flex-start;
-      align-items: center;
+      align-items: flex-start !important;
+      text-align: left;
     }
     @include atMd {
-      display: block;
-      min-width: 206px;
+      min-width: 196px;
     }
     & > * {
       flex-basis: calc(50% - var(--wp--custom--spacing--unit) / 2);
@@ -423,7 +435,10 @@
       line-height: var(--lineheight-normal);
       a {
         text-decoration: none;
-        background-image: linear-gradient(var(--wp--preset--color--foreground), var(--wp--preset--color--foreground));
+        background-image: linear-gradient(
+          var(--wp--preset--color--foreground),
+          var(--wp--preset--color--foreground)
+        );
         background-position: 0% 100%;
         background-repeat: no-repeat;
         background-size: 0% 1px;
@@ -462,6 +477,72 @@
     }
     *:last-child {
       margin-bottom: 0;
+    }
+  }
+}
+
+/* contact-info overall layout adjustments */
+.personnelpopup--image {
+  height: 200px;
+  @media screen and (min-width: 768px) {
+    height: 200px;
+  }
+}
+.personnelcard--contact-info {
+  width: 100%;
+  font-family: var(--wp--preset--font-family--metropolis);
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.75rem;
+  @media screen and (min-width: 768px) {
+    margin-top: 1.5rem;
+  }
+}
+.personnelpopup--info {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: flex-start;
+  column-gap: 1.5rem;
+  text-align: left;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+  }
+  .personnelcard--linkedin {
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in-out;
+    &:before {
+      content: "";
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MjsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSIxMDAlIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnNlcmlmPSJodHRwOi8vd3d3LnNlcmlmLmNvbS8iIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNDczLjMwNSwtMS4zNTNjMjAuODgsMCAzNy44ODUsMTYuNTMzIDM3Ljg4NSwzNi45MjZsMCw0MzguMjUxYzAsMjAuMzkzIC0xNy4wMDUsMzYuOTU0IC0zNy44ODUsMzYuOTU0bC00MzYuNDU5LDBjLTIwLjgzOSwwIC0zNy43NzMsLTE2LjU2MSAtMzcuNzczLC0zNi45NTRsMCwtNDM4LjI1MWMwLC0yMC4zOTMgMTYuOTM0LC0zNi45MjYgMzcuNzczLC0zNi45MjZsNDM2LjQ1OSwwWm0tMzcuODI5LDQzNi4zODlsMCwtMTM0LjAzNGMwLC02NS44MjIgLTE0LjIxMiwtMTE2LjQyNyAtOTEuMTIsLTExNi40MjdjLTM2Ljk1NSwwIC02MS43MzksMjAuMjYzIC03MS44NjcsMzkuNDc2bC0xLjA0LDBsMCwtMzMuNDExbC03Mi44MTEsMGwwLDI0NC4zOTZsNzUuODY2LDBsMCwtMTIwLjg3OGMwLC0zMS44ODMgNi4wMzEsLTYyLjc3MyA0NS41NTQsLTYyLjc3M2MzOC45ODEsMCAzOS40NjgsMzYuNDYxIDM5LjQ2OCw2NC44MDJsMCwxMTguODQ5bDc1Ljk1LDBabS0yODQuNDg5LC0yNDQuMzk2bC03Ni4wMzQsMGwwLDI0NC4zOTZsNzYuMDM0LDBsMCwtMjQ0LjM5NlptLTM3Ljk5NywtMTIxLjQ4OWMtMjQuMzk1LDAgLTQ0LjA2NiwxOS43MzUgLTQ0LjA2Niw0NC4wNDdjMCwyNC4zMTggMTkuNjcxLDQ0LjA1MiA0NC4wNjYsNDQuMDUyYzI0LjI5OSwwIDQ0LjAyNiwtMTkuNzM0IDQ0LjAyNiwtNDQuMDUyYzAsLTI0LjMxMiAtMTkuNzI3LC00NC4wNDcgLTQ0LjAyNiwtNDQuMDQ3WiIgZmlsbD0iIzJkMmQyZCIgc3R5bGU9ImZpbGwtcnVsZTpub256ZXJvOyIvPjwvc3ZnPg==")
+        no-repeat center;
+      background-size: contain;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .personnelcard--telephone,
+  .personnelcard--email {
+    line-height: 1.2;
+    color: var(--wp--preset--color--accent-5);
+    text-decoration: none;
+    font-size: 0.88rem;
+    &:hover,
+    &:hover span {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+  .personnelcard--email {
+    white-space: wrap;
+    span {
+      display: inline-block;
+      white-space: nowrap;
     }
   }
 }

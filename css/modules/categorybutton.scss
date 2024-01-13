@@ -10,6 +10,19 @@
         text-align: left !important;
       }
     }
+    .category-name {
+      &__webinar,
+      &__webinaire {
+        background-color: var(--wp--preset--color--contrast);
+      }
+      &__article {
+        background-color: var(--wp--preset--color--contrast-2);
+      }
+      &__report,
+      &__rapport {
+        background-color: var(--wp--preset--color--contrast-3);
+      }
+    }
   }
   &.category-button__post {
     padding-top: 1rem;

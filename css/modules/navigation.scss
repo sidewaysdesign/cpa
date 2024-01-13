@@ -24,6 +24,7 @@
 
   /* hamburger button */
   .wp-block-navigation__responsive-container-open {
+    color: var(--wp--preset--color--contrast-3);
     display: block !important;
     transform: translateY(3px);
   }
@@ -38,11 +39,18 @@
 }
 
 header {
-  border-bottom: 1px solid var(--wp--preset--color--contrast-3);
+  padding: 0 !important;
+  & > div {
+    border-bottom: 1px solid var(--wp--preset--color--contrast-3);
+  }
+  & > div > div {
+    min-height: var(--nav-minheight);
+  }
   min-height: var(--nav-minheight);
+
   & > .wp-block-group.has-global-padding {
-    padding-top: var(--nav-padding) !important;
-    padding-bottom: var(--nav-padding) !important;
+    // padding-top: var(--nav-padding) !important;
+    // padding-bottom: var(--nav-padding) !important;
     @media screen and (max-width: 767px) {
     }
   }
@@ -81,7 +89,7 @@ header {
             font-size: 1.22rem !important;
             // outline: 2px solid purple !important;
             &::after {
-              content: '';
+              content: "";
               position: absolute;
               width: calc(100vw - 2rem);
               height: 1px;
@@ -104,7 +112,9 @@ header {
           //   // MEMBER BUTTON
           // }
         }
-        & > .wp-block-navigation-item__content > .wp-block-navigation-item__label {
+        &
+          > .wp-block-navigation-item__content
+          > .wp-block-navigation-item__label {
           font-size: 1.22rem !important;
         }
       }
@@ -115,7 +125,8 @@ header {
       }
     }
     @media screen and (min-width: 1080px) and (max-width: 1280px) {
-      .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style) {
+      .wp-block-navigation__container
+        > .wp-block-navigation-item:not(.is-style-button-style) {
         // & > .wp-block-navigation-item__content,
         // & > .wp-block-navigation-item > .wp-block-navigation-item__label {
         // }
@@ -132,7 +143,8 @@ header {
       }
     }
     @media screen and (min-width: 1280px) {
-      .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style) {
+      .wp-block-navigation__container
+        > .wp-block-navigation-item:not(.is-style-button-style) {
         & > .wp-block-navigation-item__content {
           &:before {
             top: 1.8125em;
@@ -144,7 +156,8 @@ header {
       }
     }
     @media screen and (min-width: 1080px) {
-      .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style) {
+      .wp-block-navigation__container
+        > .wp-block-navigation-item:not(.is-style-button-style) {
         // & > .wp-block-navigation-item__content,
         // & > .wp-block-navigation-item > .wp-block-navigation-item__label {
         // }
@@ -156,7 +169,7 @@ header {
           position: relative;
           &:before,
           &:after {
-            content: '';
+            content: "";
             position: absolute;
             width: 0;
             height: 16px;
@@ -167,12 +180,42 @@ header {
               opacity 0.15s ease-in-out,
               width 0.15s ease-in-out,
               transform 0.15s ease-in-out;
-            background-image: linear-gradient(to bottom, var(--wp--preset--color--contrast-3) 0, var(--wp--preset--color--contrast-3) 50%, transparent 50%, transparent 100%);
+            background-image: linear-gradient(
+              to bottom,
+              var(--wp--preset--color--contrast-3) 0,
+              var(--wp--preset--color--contrast-3) 50%,
+              transparent 50%,
+              transparent 100%
+            );
             background:
-              radial-gradient(circle at 100% 0, var(--wp--preset--color--contrast-3) 65%, transparent 75%) no-repeat,
-              radial-gradient(circle at 100% 50%, var(--wp--preset--color--contrast-3) 65%, transparent 75%) no-repeat,
-              radial-gradient(circle at 0 100%, var(--wp--preset--color--contrast-3) 65%, transparent 75%) no-repeat,
-              linear-gradient(to right, transparent, transparent calc(var(--highlightheight) * 0.5), var(--wp--preset--color--contrast-3) var(--highlightheight), var(--wp--preset--color--contrast-3) calc(100% - var(--highlightheight)), transparent calc(100% - var(--highlightheight)), transparent 100%);
+              radial-gradient(
+                  circle at 100% 0,
+                  var(--wp--preset--color--contrast-3) 65%,
+                  transparent 75%
+                )
+                no-repeat,
+              radial-gradient(
+                  circle at 100% 50%,
+                  var(--wp--preset--color--contrast-3) 65%,
+                  transparent 75%
+                )
+                no-repeat,
+              radial-gradient(
+                  circle at 0 100%,
+                  var(--wp--preset--color--contrast-3) 65%,
+                  transparent 75%
+                )
+                no-repeat,
+              linear-gradient(
+                to right,
+                transparent,
+                transparent calc(var(--highlightheight) * 0.5),
+                var(--wp--preset--color--contrast-3) var(--highlightheight),
+                var(--wp--preset--color--contrast-3)
+                  calc(100% - var(--highlightheight)),
+                transparent calc(100% - var(--highlightheight)),
+                transparent 100%
+              );
             background-size:
               var(--highlightheight) 100%,
               var(--highlightheight) 100%,
@@ -184,7 +227,7 @@ header {
               right bottom,
               center bottom;
             height: var(--highlightheight);
-            filter: grayscale(100%);
+            // filter: grayscale(100%);
           }
           &:before {
             // top: 1.1em;
@@ -211,6 +254,7 @@ header {
             &:before,
             &:after {
               opacity: 0.25;
+              opacity: 1;
               width: 100%;
               transform: translateX(0);
             }
@@ -229,7 +273,7 @@ header {
         padding-bottom: 4rem;
       }
       .wp-block-navigation-item__content {
-        padding-top: 0.75rem !important;
+        padding-top: 0.625rem !important;
         // font-size: 1.5rem !important;
       }
       .wp-block-navigation-item.is-style-button-style {
@@ -254,7 +298,7 @@ header {
       .has-child {
         &:last-child {
           &after {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             right: 0;
@@ -286,9 +330,25 @@ header {
       // DESKTOP NAV STYLING
       // body:not(.has-modal-open) {
       // Minimize chance of mobile nav looking terrible on desktop
+      .wp-block-navigation__responsive-container-content
+        > .wp-block-navigation__container
+        > .wp-block-navigation-item.has-child {
+        .wp-block-navigation__submenu-container,
+        .wp-block-navigation-submenu {
+          &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1.625rem;
+            top: -1.625rem;
+            background-color: transparent;
+          }
+        }
+      }
       .wp-block-navigation__submenu-container {
         .wp-block-navigation-item__content {
-          padding: 0.6875rem 1.5rem !important;
+          padding: 0.5rem 1.5rem !important;
         }
         left: 50% !important;
         background-color: white;
@@ -320,6 +380,13 @@ header {
     }
     @media screen and (min-width: 1280px) {
       .wp-block-navigation__submenu-container {
+        .wp-block-navigation-item__content {
+          padding: 0.6875rem 1.5rem !important;
+        }
+      }
+    }
+    @media screen and (min-width: 1280px) {
+      .wp-block-navigation__submenu-container {
         transform: translate(-50%, 1.25em); // menu offset
       }
     }
@@ -339,4 +406,12 @@ header {
 .wp-block-site-logo {
   width: var(--logo-width);
   min-width: var(--logo-width);
+}
+
+header.header-sticky {
+  position: sticky !important;
+  height: 40px;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
 }
