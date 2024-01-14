@@ -1,0 +1,57 @@
+#coverage-requirements {
+  @media screen and (max-width: 781px) {
+    padding-top: 5rem !important;
+  }
+}
+
+.wp-container-core-group-layout-8.wp-container-core-group-layout-8 {
+  // homepage How We Can Help right side spacing on smaller sizes
+  @media screen and (max-width: 781px) {
+    --wp--preset--spacing--20: min(1rem, 6vw);
+  }
+}
+html[lang^="en"] {
+  #how-we-can-help {
+    & > .wp-block-columns {
+      & > .wp-block-column {
+        --column: 20%;
+        &:first-child {
+          @media screen and (min-width: 782px) and (max-width: 1120px) {
+            //adjust text around "HOW WE CAN HELP" on homepage
+            outline: 2px dotted orange;
+            width: var(--column) !important;
+          }
+        }
+        &:nth-child(2) {
+          @media screen and (min-width: 782px) and (max-width: 1120px) {
+            outline: 2px dotted brown;
+            width: calc(100% - var(--column)) !important;
+          }
+        }
+      }
+    }
+  }
+}
+main > .entry-content > .wp-block-columns {
+  // increase spacing below nav to hero element
+  @media screen and (max-width: 781px) {
+    &:before {
+      content: "";
+      height: 1rem;
+      width: 1px;
+    }
+  }
+}
+#stats {
+  .wp-block-heading {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+  h2 {
+    font-size: clamp(2.75rem, 2.875rem + ((1vw - 0.2rem) * 2.442), 3.75rem) !important;
+  }
+  p {
+    font-size: 1.25rem !important;
+    transform: translateY(-0.125em);
+  }
+}

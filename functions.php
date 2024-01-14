@@ -422,4 +422,4 @@ add_filter('the_content', 'wpautop', 99);
 add_filter('the_content', 'shortcode_unautop', 100);
 
 // Trim excerpts to 20 words
-add_filter( 'excerpt_length', function() { return 30; }, 999 );
+add_filter( 'excerpt_length', function() { return 40; }, 999 );

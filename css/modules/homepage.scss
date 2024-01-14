@@ -7,25 +7,6 @@
     max-width: none;
   }
 }
-.wp-block-media-text.is-image-fill .wp-block-media-text__media {
-  --image-height: 200px;
-  min-height: none;
-  @media screen and (max-width: 599px) {
-    min-height: var(--image-height);
-  }
-}
-.wp-block-media-text {
-  border-radius: 1rem;
-  &.is-image-fill {
-    width: 100%;
-  }
-  &__media {
-    border-radius: 1rem 1rem 0 0;
-    @media screen and (min-width: 600px) {
-      border-radius: 1rem 0 0 1rem;
-    }
-  }
-}
 .homepage-hero {
   height: calc(100vh - var(--nav-minheight));
 }

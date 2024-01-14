@@ -14,15 +14,10 @@
 
   &__unit {
     background: white;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 1.8125rem 1.5rem;
     border-radius: 1.5rem;
     display: flex;
     gap: 1.5rem;
-    // .wp-block-button.is-style-outline-arrow {
-    //   padding-left: 0;
-    //   margin-bottom: 0;
-    //   padding-bottom: 0 !important;
-    // }
   }
 
   &__header {
@@ -64,13 +59,13 @@
     text-align: center;
     position: relative;
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0.625rem;
       left: 0.6255rem;
       right: 0.625rem;
       bottom: 0.625rem;
-      border: 4px solid grey;
+      border: 4px solid #bababa;
       border-radius: 0.75rem;
       @media screen and (min-width: 600px) {
         top: 1rem;
@@ -101,7 +96,7 @@
     font-size: 1.125rem;
     padding-top: 0.5625em;
     padding-bottom: 0.375em;
-    border-bottom: 4px solid grey;
+    border-bottom: 4px solid #bababa;
     @media screen and (min-width: 600px) {
       font-size: 1.5rem;
       padding-top: 0.625em;
@@ -110,12 +105,12 @@
     }
     &:before,
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       width: 4px;
       height: 1.125rem;
       border-radius: 12px;
-      background-color: grey;
+      background-color: #bababa;
       top: -0.5rem;
       @media screen and (min-width: 600px) {
         height: 1.5rem;
@@ -150,6 +145,7 @@
       padding-top: 0;
       margin-top: 0;
       margin-bottom: 0.375rem;
+      font-size: 0.88rem !important;
     }
     & > h4 {
       font-size: 1.625rem !important;

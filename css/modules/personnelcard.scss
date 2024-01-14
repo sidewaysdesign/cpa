@@ -15,7 +15,7 @@
 .personnelcard--wrapper {
   cursor: pointer;
   width: 100%;
-  display: inline-block;
+  margin-bottom: 0.75rem;
   @include atMd {
     width: 202px;
   }
@@ -27,15 +27,15 @@
   text-decoration: none;
 }
 .personnelcard--unit {
-  padding: var(--wp--custom--spacing--unit) 0
-    calc(var(--wp--custom--spacing--unit) * 0.5) 0;
+  padding: var(--wp--custom--spacing--unit) 0 calc(var(--wp--custom--spacing--unit) * 0.5) 0;
   margin: 0 0 calc(var(--wp--custom--spacing--unit) * 0.5) 0;
   text-align: left;
   flex: 1 1 auto;
-  width: 12rem;
+  width: 50%;
   justify-content: center;
   align-items: center;
   @include atX {
+    width: 50%;
     width: 9.5rem;
   }
   @media screen and (min-width: 680px) {
@@ -52,15 +52,25 @@
     }
   }
 }
+.personnelcard--titlearea,
+.personnelcard--image {
+  width: 100%;
+}
 .personnelcard--titlearea {
+  box-sizing: border-box;
   display: flex;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   gap: 0.25rem;
   flex-direction: column;
   background-color: var(--cpa-green);
   border-radius: var(--radius-tlbr-small);
   // margin: 0.875rem 0 0;
-  padding: 0.75rem 0.25rem 0.625rem 0.25rem;
+  padding: 0.75rem 0.5rem 0.625rem 0.5rem;
+  min-height: 4.25rem !important;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    min-height: 3rem !important;
+  }
 }
 .personnelcard--image {
   display: block;
@@ -435,10 +445,7 @@
       line-height: var(--lineheight-normal);
       a {
         text-decoration: none;
-        background-image: linear-gradient(
-          var(--wp--preset--color--foreground),
-          var(--wp--preset--color--foreground)
-        );
+        background-image: linear-gradient(var(--wp--preset--color--foreground), var(--wp--preset--color--foreground));
         background-position: 0% 100%;
         background-repeat: no-repeat;
         background-size: 0% 1px;

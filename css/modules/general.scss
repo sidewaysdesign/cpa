@@ -11,6 +11,9 @@ main.wp-block-group {
 .wpforms-recaptcha-container {
   display: none;
 }
+strong {
+  font-weight: 600;
+}
 // main > *:last-child {
 //   &:after {
 //     display: block;
@@ -19,3 +22,13 @@ main.wp-block-group {
 //     height: 70px;
 //   }
 // }
+
+:root {
+  .wp-block-group {
+    --wp--preset--spacing--30: min(2.625rem, 4.5vw);
+  }
+}
+
+.wp-block-paragraph + .wp-block-paragraph {
+  margin-top: 1.5rem;
+}
