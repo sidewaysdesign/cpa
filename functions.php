@@ -282,7 +282,7 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 							// Exclude certain directories from AI1WM (All-in-One WP Migration) export
 							add_filter('ai1wm_exclude_content_from_export', function($exclude_filters) {
 								$exclude_filters[] = 'plugins/*/node_modules';
-								$exclude_filters[] = 'ohja/node_modules';
+								$exclude_filters[] = 'cpa/node_modules';
 								return $exclude_filters;
 							});
 							
@@ -423,3 +423,11 @@ add_filter('the_content', 'shortcode_unautop', 100);
 
 // Trim excerpts to 20 words
 add_filter( 'excerpt_length', function() { return 40; }, 999 );
+
+
+// Enable ACF Maps API Key
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'AIzaSyAD5gd3f4ItF-PiPjGj0cx0BmvTvfUC7fc';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
