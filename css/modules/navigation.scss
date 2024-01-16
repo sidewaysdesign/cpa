@@ -64,23 +64,28 @@ header {
     .wp-block-navigation-submenu__toggle {
       display: none !important;
     }
-    .wp-block-navigation__container > .wp-block-navigation-item {
-      @media screen and (max-width: 1079px) {
-        &,
-        & > .wp-block-navigation-item__content,
-        & > .wp-block-navigation-item__label {
-          font-size: 1.1rem !important;
-        }
-        & > .wp-block-navigation-item__content {
-          font-size: 1.22rem !important;
-        }
-      }
+    .wp-block-navigation__container {
       @media screen and (min-width: 1080px) and (max-width: 1280px) {
-        /* TOP-LEVEL NAV ITEM FONT-SIZE UP TO 1024PX */
-        &,
-        & > .wp-block-navigation-item__content,
-        & .wp-block-navigation-item__label {
-          font-size: 0.9rem !important;
+        column-gap: 1.75rem !important;
+      }
+      & > .wp-block-navigation-item {
+        @media screen and (max-width: 1079px) {
+          &,
+          & > .wp-block-navigation-item__content,
+          & > .wp-block-navigation-item__label {
+            font-size: 1.1rem !important;
+          }
+          & > .wp-block-navigation-item__content {
+            font-size: 1.22rem !important;
+          }
+        }
+        @media screen and (min-width: 1080px) and (max-width: 1280px) {
+          /* TOP-LEVEL NAV ITEM FONT-SIZE UP TO 1024PX */
+          &,
+          & > .wp-block-navigation-item__content,
+          & .wp-block-navigation-item__label {
+            font-size: 0.94rem !important;
+          }
         }
       }
     }
@@ -143,7 +148,7 @@ header {
             top: 1.8125em;
           }
           &:after {
-            bottom: 1.8125em;
+            bottom: 1.875em;
           }
         }
       }

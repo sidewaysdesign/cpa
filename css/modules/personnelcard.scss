@@ -92,7 +92,8 @@
     }
   }
   @include atMd {
-    width: 200px;
+    // width: 200px;
+    width: 100%;
   }
   @include atLg {
     // border-radius: var(--radius-tlbr-large);

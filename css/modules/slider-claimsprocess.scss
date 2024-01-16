@@ -88,51 +88,52 @@
     .swiper-button-next {
     }
   }
-}
-.wp-block-gutsliders-any-content .gutslider-content-inner {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%) !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  padding: clamp(15px, 4vw, 30px) !important;
 
-  max-width: calc(100% - 4em) !important;
-}
-.wp-block-gutsliders-slide {
-  &,
-  .swiper-container-outer {
-    height: 300px !important;
+  .wp-block-gutsliders-any-content .gutslider-content-inner {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding: clamp(15px, 4vw, 30px) !important;
+
+    max-width: calc(100% - 4em) !important;
+  }
+  .wp-block-gutsliders-slide {
+    &,
+    .swiper-container-outer {
+      height: 300px !important;
+      @media screen and (min-width: 600px) {
+        height: 530px !important;
+      }
+      @media screen and (min-width: 782px) {
+        height: 360px !important;
+        height: 40vw !important;
+      }
+      @media screen and (min-width: 870px) {
+        height: 340px !important;
+      }
+    }
+  }
+
+  .claims-process-slider {
+    --number: 2.25rem;
+    --heading: 1.25rem;
+    h2.wp-block-heading {
+      font-size: var(--number) !important;
+      transform: translateY(0.015em);
+    }
+    h5 {
+      font-size: var(--heading) !important;
+      // transform: translateY(0.015em);
+    }
     @media screen and (min-width: 600px) {
-      height: 530px !important;
+      --heading: 1.375rem;
+      --number: 3rem;
     }
-    @media screen and (min-width: 782px) {
-      height: 360px !important;
-      height: 40vw !important;
+    @media screen and (min-width: 768px) {
+      --number: 4rem;
+      --heading: 1.625rem;
     }
-    @media screen and (min-width: 870px) {
-      height: 340px !important;
-    }
-  }
-}
-
-.claims-process-slider {
-  --number: 2.25rem;
-  --heading: 1.25rem;
-  h2.wp-block-heading {
-    font-size: var(--number) !important;
-    transform: translateY(0.015em);
-  }
-  h5 {
-    font-size: var(--heading) !important;
-    // transform: translateY(0.015em);
-  }
-  @media screen and (min-width: 600px) {
-    --heading: 1.375rem;
-    --number: 3rem;
-  }
-  @media screen and (min-width: 768px) {
-    --number: 4rem;
-    --heading: 1.625rem;
   }
 }

@@ -7,6 +7,7 @@ import { FAQSmoothHeightTransition } from "./modules/FAQSmoothHeightTransition";
 import { InsertFooterPaddingElement } from "./modules/InsertFooterPaddingElement";
 import { HandleCurrentMenuItem } from "./modules/HandleCurrentMenuItem";
 import { MobileMenu } from "./modules/MobileMenu";
+import { ScrollAnimations } from "./modules/ScrollAnimations";
 // import { AdjustContentHeight } from './modules/AdjustContentHeight'
 
 const forceMenuOpen = () => {
@@ -33,6 +34,12 @@ const onReady = () => {
     },
   ]);
   var comboboxExpander = new ComboboxExpander([{ targetSelector: ".wp-block-details.is-style-popup-menu" }]);
+  var scrollAnimations = new ScrollAnimations([
+    {
+      targetSelector: ".wp-block-post-content >*:not(:first-child)",
+      action: "fadeup",
+    },
+  ]);
   var socialCopyToClipboardLink = new SocialCopyToClipboardLink([{ targetSelector: ".wp-block-social-links" }]);
   var addAriaHidden = new AddAriaHidden([{ targetSelector: ".is-style-aria-hidden" }]);
   var faqSmoothHeightTransition = new FAQSmoothHeightTransition();

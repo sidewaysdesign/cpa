@@ -55,3 +55,33 @@ main > .entry-content > .wp-block-columns {
     transform: translateY(-0.125em);
   }
 }
+
+#insurance-coverage-requirements {
+  position: relative;
+  z-index: 1;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    left: 50%;
+    height: 4rem;
+    width: 100vw;
+    background-image: url(../assets/images/threehorizontalstripes.svg);
+    background-position: 21vw center;
+    z-index: 0;
+    background-size: 22rem;
+    background-repeat: no-repeat;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1140px) {
+    padding-right: 40vw;
+    &:before {
+      top: 1.5rem;
+    }
+  }
+  @media screen and (max-width: 781px) {
+    &:before {
+      content: none;
+    }
+  }
+}

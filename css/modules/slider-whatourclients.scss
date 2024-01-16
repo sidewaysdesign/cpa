@@ -1,0 +1,75 @@
+.slider-beanasset,
+.slider-whatourclients {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (max-width: 768px) {
+    overflow: hidden;
+  }
+  @media screen and (min-width: 900px) {
+    &,
+    &.swiper-initialized {
+      overflow: visible;
+    }
+  }
+  .swiper-horizontal,
+  .swiper-wrapper {
+    overflow: visible;
+  }
+  @media screen and (min-width: 1920px) {
+    position: relative;
+  }
+  .swiper-container-outer {
+    justify-content: flex-start !important;
+    background-color: transparent !important;
+  }
+  .swiper {
+    margin-bottom: 1rem;
+    @media screen and (min-width: 768px) {
+      margin-bottom: unset;
+    }
+  }
+  .gutslider-nav {
+    column-gap: 0.625rem !important;
+    .swiper-button-prev,
+    .swiper-button-next {
+      border: 2px solid var(--wp--preset--color--base);
+      background-color: transparent;
+      padding: 0.25rem;
+      &:after {
+        color: var(--wp--preset--color--base);
+      }
+    }
+    @media screen and (min-width: 768px) {
+      transform: translate(-50%, 0.75rem);
+    }
+  }
+  &.wp-block-gutsliders-any-content .gutslider-content-inner {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    // max-width: calc(100% - 1rem) !important;
+    max-width: 100% !important;
+    min-height: 100%;
+    background-color: white;
+    border-top-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    padding: 0 clamp(15px, 3vw, 30px) !important;
+  }
+  .wp-block-gutsliders-slide {
+    &,
+    .swiper-container-outer {
+      // height: 200px !important;
+      @media screen and (min-width: 600px) {
+        // height: 230px !important;
+      }
+      @media screen and (min-width: 782px) {
+        // not visible
+      }
+      @media screen and (min-width: 768px) {
+        // not visible
+      }
+    }
+  }
+}

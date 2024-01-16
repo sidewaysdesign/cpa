@@ -39,11 +39,12 @@
             transform 0.3s ease-in-out;
         }
         &::after {
-          opacity: 0;
+          transform: rotate(90deg);
+          opacity: 1;
         }
         & ~ * {
           animation: fadeOutMoveUp 0.3s ease-in-out reverse;
-          opacity: 0;
+          opacity: 1;
           transform: translateY(-0.5em);
           padding-left: var(--faq-indent);
           transition:
@@ -59,8 +60,8 @@
     &[open] {
       summary {
         &::after {
-          opacity: 1;
-          transform: rotate(90deg);
+          opacity: 0;
+          transform: rotate(180deg);
         }
         & ~ * {
           animation: fadeInMoveDown 0.3s ease-in-out forwards;
