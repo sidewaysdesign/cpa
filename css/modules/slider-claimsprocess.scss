@@ -56,9 +56,6 @@
       right: 0;
     }
   }
-  .wp-block-gutsliders-slide {
-    /**/
-  }
   .swiper-container-outer {
     border-radius: 1.5rem;
     justify-content: flex-start !important;
@@ -96,29 +93,60 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
     padding: clamp(15px, 4vw, 30px) !important;
-
     max-width: calc(100% - 4em) !important;
   }
-  .wp-block-gutsliders-slide {
-    &,
-    .swiper-container-outer {
-      height: 300px !important;
-      @media screen and (min-width: 600px) {
-        height: 530px !important;
-      }
-      @media screen and (min-width: 782px) {
-        height: 360px !important;
-        height: 40vw !important;
-      }
-      @media screen and (min-width: 870px) {
-        height: 340px !important;
-      }
+
+  &.wp-block-gutsliders-any-content {
+    .swiper .swiper-container-outer .gutslider-content-inner {
+      padding: clamp(25px, 6vw, 20px) clamp(10px, 4vw, 15px) !important;
     }
   }
 
   .claims-process-slider {
     --number: 2.25rem;
-    --heading: 1.25rem;
+    --heading: 1.1875rem;
+    & > .wp-block-columns {
+      & > .wp-block-column:first-child {
+        // big number
+        @media screen and (max-width: 839px) {
+          // width of big number
+          flex-basis: 100px !important;
+        }
+        @media screen and (min-width: 840px) {
+          flex-basis: 106px !important;
+        }
+        & > .wp-block-group {
+          @media screen and (min-width: 640px) and (max-width: 839px) {
+            // height of big number shape
+            display: flex;
+            align-items: center;
+            min-height: 5.25rem !important;
+          }
+        }
+      }
+      & > .wp-block-column:last-child {
+        // text
+        .wp-block-heading {
+        }
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.625rem !important;
+        @media screen and (min-width: 600px) {
+          padding-top: 0.75rem !important;
+          padding-bottom: 0.75rem !important;
+        }
+        @media screen and (min-width: 840px) {
+          padding-top: 0.875rem !important;
+          padding-bottom: 0.875rem !important;
+        }
+        @media screen and (min-width: 1200px) {
+          padding-top: 1.125rem !important;
+          padding-bottom: 1.125rem !important;
+        }
+      }
+      @media screen and (max-width: 839px) {
+        flex-wrap: wrap !important;
+      }
+    }
     h2.wp-block-heading {
       font-size: var(--number) !important;
       transform: translateY(0.015em);
@@ -131,9 +159,13 @@
       --heading: 1.375rem;
       --number: 3rem;
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 840px) {
       --number: 4rem;
-      --heading: 1.625rem;
+      --heading: 1.5rem;
+    }
+    @media screen and (min-width: 1200px) {
+      --number: 4rem;
+      --heading: 1.5625rem;
     }
   }
 }

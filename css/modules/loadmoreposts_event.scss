@@ -5,8 +5,9 @@
   &__block {
     // border: 10px solid red;
     max-width: 1230px !important;
-    padding-left: 30px !important;
-    padding-right: 30px !important;
+
+    padding-left: var(--wp--preset--spacing--30) !important;
+    padding-right: var(--wp--preset--spacing--30) !important;
   }
   &__container {
     display: flex;
@@ -15,6 +16,9 @@
     margin-bottom: 1.5rem !important;
     & + .wp-block-buttons {
       text-align: center;
+      @media screen and (min-width: 780px) {
+        text-align: left;
+      }
     }
   }
   &__unit {

@@ -1,5 +1,8 @@
 body {
   // border: 20px solid blue;
+  * {
+    box-sizing: border-box;
+  }
 }
 .fullwidth {
   width: 100% !important;
@@ -14,14 +17,6 @@ main.wp-block-group {
 strong {
   font-weight: 600;
 }
-// main > *:last-child {
-//   &:after {
-//     display: block;
-//     content: '';
-//     width: 10px;
-//     height: 70px;
-//   }
-// }
 
 :root {
   .wp-block-group {

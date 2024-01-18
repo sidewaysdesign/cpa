@@ -8,7 +8,8 @@ import { InsertFooterPaddingElement } from "./modules/InsertFooterPaddingElement
 import { HandleCurrentMenuItem } from "./modules/HandleCurrentMenuItem";
 import { MobileMenu } from "./modules/MobileMenu";
 import { ScrollAnimations } from "./modules/ScrollAnimations";
-// import { AdjustContentHeight } from './modules/AdjustContentHeight'
+import { AdjustContentHeight } from "./modules/AdjustContentHeight";
+import { PlayPauseButton } from "./modules/PlayPauseButton";
 
 const forceMenuOpen = () => {
   const menu = document.querySelector(".wp-block-navigation__responsive-container");
@@ -36,7 +37,8 @@ const onReady = () => {
   var comboboxExpander = new ComboboxExpander([{ targetSelector: ".wp-block-details.is-style-popup-menu" }]);
   var scrollAnimations = new ScrollAnimations([
     {
-      targetSelector: ".wp-block-post-content >*:not(:first-child)",
+      targetSelector:
+        ".wp-block-post-content >*:not(:first-child, .scrollindicator-link, .has-custom-accent-yellow-background-color, #alert-banner)",
       action: "fadeup",
     },
   ]);
@@ -53,8 +55,18 @@ const onReady = () => {
     menuCloseButtonSelector: ".wp-block-navigation__responsive-container-close",
   });
 
-  // var adjustContentHeight = new AdjustContentHeight([{ targetSelector: '.gutslider-content-inner > *' }])
-
+  var adjustContentHeight = new AdjustContentHeight([
+    {
+      rootTargetSelector: ".wp-block-gutsliders-any-content",
+      sliderSelector: ".swiper-wrapper",
+      innerSelector: ".gutslider-content-inner",
+    },
+  ]);
+  var playPauseButton = new PlayPauseButton({
+    targetSelector: ".homepage-hero",
+    isPreview: false,
+    ariaHidden: false,
+  });
   // var constructPopup = new ConstructPopup([{ triggerSelector: '.youtube-popup' }])
   // var awardsVideoLoader = new AwardsVideoLoader([{ targetSelector: '#videoContainer' }])
 };
