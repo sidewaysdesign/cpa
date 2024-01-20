@@ -20,8 +20,10 @@
       summary {
         padding-left: var(--faq-indent);
         font-weight: 600;
-        &::marker {
-          content: "";
+        &::marker,
+        &::-webkit-details-marker {
+          content: "" !important;
+          display: none !important;
         }
         &::before,
         &::after {
@@ -65,7 +67,7 @@
         }
         & ~ * {
           animation: fadeInMoveDown 0.3s ease-in-out forwards;
-          max-height: 150px;
+          max-height: 1000px;
         }
       }
     }

@@ -83,7 +83,7 @@ footer {
 }
 #footer-address {
   @media screen and (min-width: 960px) and (max-width: 1140px) {
-    transform: translateX(-3rem);
+    // transform: translateX(-3rem);
   }
 }
 #footer-menuitems {
@@ -94,7 +94,7 @@ footer {
     width: 820px !important;
   }
   @media screen and (max-width: 767px) {
-    button[type='submit'] {
+    button[type="submit"] {
       width: 100% !important;
     }
   }
@@ -104,7 +104,7 @@ footer {
 }
 #footer-newsletter {
   @media screen and (max-width: 767px) {
-    button[type='submit'] {
+    button[type="submit"] {
       width: 100% !important;
     }
   }

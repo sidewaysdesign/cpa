@@ -19,7 +19,11 @@
   }
 }
 
-@media screen and (max-width: 1080px) {
+html {
+  /* sticky header offset */
+  scroll-padding-top: calc(var(--nav-padding) * 3) !important;
+}
+@media screen and (max-width: 1079px) {
   /* NAV BREAKPOINT CONTROL */
 
   /* hamburger button */
@@ -33,6 +37,7 @@
   .wp-block-navigation__responsive-container:not(.is-menu-open.has-modal-open) {
     display: none !important;
   }
+
   .wp-block-navigation__responsive-container-close {
     // transform: translateY(0.75rem);
     transform: translateY(1.125rem);
@@ -231,7 +236,7 @@ header {
           }
         }
       }
-      .wp-block-navigation__container .wp-block-navigation-item.current-menu-item,
+      .wp-block-navigation__container .wp-block-navigation-item.current-menu-item:not(.is-style-button-style),
       .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style):hover {
         & > .wp-block-navigation-item__content {
           color: var(--wp--preset--color--contrast-3) !important;
@@ -388,7 +393,7 @@ header {
       }
     }
     // --------- Login Menu Styling ---------
-    @media screen and (max-width: 1080px) {
+    @media screen and (max-width: 1079px) {
       .is-style-button-style {
         margin-top: 0.625rem;
         .wp-block-navigation__submenu-container {
@@ -409,6 +414,9 @@ header {
           background-color: var(--wp--preset--color--accent-4);
           height: calc(100% + 1.5625rem);
           width: 100vw !important;
+        }
+        &.current-menu-item > .wp-block-navigation-item__content {
+          color: var(--wp--preset--color--white) !important;
         }
       }
     }
@@ -474,6 +482,9 @@ header {
           border-top-right-radius: 0 !important;
           padding-top: 0;
         }
+        &.current-menu-item > .wp-block-navigation-item__content {
+          color: var(--wp--preset--color--white) !important;
+        }
       }
     }
   }
@@ -489,6 +500,12 @@ header.header-sticky {
   top: 0;
   bottom: 0;
   z-index: 1000;
+}
+@media screen and (min-width: 1080px) {
+  /* widen dropdown menus */
+  .wp-block-navigation .has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
+    min-width: 260px !important;
+  }
 }
 
 // // - - - - - - - - - - -

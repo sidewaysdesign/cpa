@@ -10,6 +10,10 @@ import { MobileMenu } from "./modules/MobileMenu";
 import { ScrollAnimations } from "./modules/ScrollAnimations";
 import { AdjustContentHeight } from "./modules/AdjustContentHeight";
 import { PlayPauseButton } from "./modules/PlayPauseButton";
+import { MobileMenuTopLevel } from "./modules/MobileMenuTopLevel";
+import { PersonnelNameAlignment } from "./modules/PersonnelNameAlignment";
+import { SiteEditHotkey } from "./modules/SiteEditHotkey";
+import { LinkPreventDefault } from "./modules/LinkPreventDefault.js";
 
 const forceMenuOpen = () => {
   const menu = document.querySelector(".wp-block-navigation__responsive-container");
@@ -19,8 +23,10 @@ const forceMenuOpen = () => {
   body.classList.add("has-modal-open");
 };
 const onReady = () => {
-  if (location.hostname === "localhost" || location.hostname.includes("cpa-plan.local")) {
+  console.log(location.hostname, location.hostname.includes(".local"));
+  if (location.hostname === "localhost" || location.hostname.includes(".local")) {
     document.body.classList.add("localhost");
+    var siteEditHotkey = new SiteEditHotkey();
     // const delayedMenuOpen = setTimeout(forceMenuOpen, 750);
   }
   var handleCurrentMenuItem = new HandleCurrentMenuItem();
@@ -46,7 +52,20 @@ const onReady = () => {
   var addAriaHidden = new AddAriaHidden([{ targetSelector: ".is-style-aria-hidden" }]);
   var faqSmoothHeightTransition = new FAQSmoothHeightTransition();
   var insertFooterPaddingElement = new InsertFooterPaddingElement();
-
+  var personnelNameAlignment = new PersonnelNameAlignment([
+    { unitSelector: ".personnel-unit--wrapper", targetSelector: ".personnelcard--titlearea" },
+  ]);
+  var mobileMenuTopLevel = new MobileMenuTopLevel([
+    {
+      targfetSelector:
+        ".wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.has-child",
+    },
+  ]);
+  var linkPreventDefault = new LinkPreventDefault([
+    {
+      targetSelector: ".wp-block-navigation-item.is-style-button-style > a[href='#']",
+    },
+  ]);
   var mobileMenu = new MobileMenu({
     menuSelector: "header .wp-block-navigation .wp-block-navigation__responsive-container",
     triggerSelector: ".wp-block-navigation-submenu.has-child > .wp-block-navigation-item__content",

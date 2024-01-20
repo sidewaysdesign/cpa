@@ -30,6 +30,11 @@ strong {
   margin-top: 1.5rem;
 }
 
+:root,
+body {
+  --wp--preset--font-size--medium: 1.1rem;
+}
+
 .wp-block-post-content .display, .wp-block-post-content .display.wp-block-heading {
   font-size: 3.125rem !important;
   line-height: 1.13;
@@ -166,6 +171,10 @@ h1.blog-title {
     padding-left: 1.5em !important;
     padding-right: 1.5em !important;
   }
+}
+
+.wp-block-button .wp-block-button__link.wp-element-button {
+  line-height: 1 !important;
 }
 
 .big-green-equals {
@@ -419,12 +428,6 @@ footer {
     --deco-offset: 3rem;
   }
 }
-@media screen and (min-width: 960px) and (max-width: 1140px) {
-  #footer-address {
-    transform: translateX(-3rem);
-  }
-}
-
 @media screen and (min-width: 1140px) {
   #footer-menuitems {
     width: 820px !important;
@@ -464,7 +467,7 @@ footer > .wp-block-group > .wp-block-columns {
 
 :root {
   --wp--preset--color--tertiary: orange;
-  --inner-margin: 1.5rem;
+  --inner-margin: 0.875rem;
   --radius-tlbr-small: 0.625rem;
   --radius-tlbr-medium: 1rem;
   --radius-medium: 1.875rem;
@@ -473,6 +476,11 @@ footer > .wp-block-group > .wp-block-columns {
   --radius-tlbr-huge: 3.75rem 0 3.75rem 0;
   --font-light: "Metropolis Light", sans-serif;
   --font-medium: "Metropolis Medium", sans-serif;
+}
+@media screen and (min-width: 500px) {
+  :root {
+    --inner-margin: 1.5rem;
+  }
 }
 
 .personnelcard--wrapper {
@@ -539,7 +547,7 @@ footer > .wp-block-group > .wp-block-columns {
   flex-direction: column;
   background-color: var(--cpa-green);
   border-radius: var(--radius-tlbr-small);
-  padding: 0.75rem 0.5rem 0.625rem 0.5rem;
+  padding: 0.375rem 0.5rem 0.25rem 0.5rem;
   min-height: 4.25rem !important;
   justify-content: center;
 }
@@ -774,7 +782,7 @@ footer > .wp-block-group > .wp-block-columns {
   border: 2px solid var(--cpa-green);
   display: flex;
   flex-direction: column;
-  max-width: calc(100vw - 30px);
+  max-width: calc(100vw - var(--inner-margin) * 2);
 }
 @media (min-width: 768px) {
   .personnelpopup--container {
@@ -824,13 +832,18 @@ footer > .wp-block-group > .wp-block-columns {
 }
 .personnelpopup--image {
   display: block;
-  width: 50%;
+  width: 42%;
   padding-bottom: 50%;
   background-position: center;
   background-size: cover;
   border-radius: var(--radius-tlbr-medium);
   max-width: 172px;
   margin-bottom: var(--margin-mobile);
+}
+@media screen and (min-width: 500px) {
+  .personnelpopup--image {
+    width: 50%;
+  }
 }
 @supports (aspect-ratio: 4/3) {
   .personnelpopup--image {
@@ -961,7 +974,12 @@ footer > .wp-block-group > .wp-block-columns {
 
 /* contact-info overall layout adjustments */
 .personnelpopup--image {
-  height: 200px;
+  height: 184px;
+}
+@media screen and (min-width: 500px) {
+  .personnelpopup--image {
+    height: 200px;
+  }
 }
 @media screen and (min-width: 768px) {
   .personnelpopup--image {
@@ -987,8 +1005,8 @@ footer > .wp-block-group > .wp-block-columns {
   flex-direction: row;
   align-items: left;
   justify-content: flex-start;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  -moz-column-gap: var(--inner-margin);
+       column-gap: var(--inner-margin);
   text-align: left;
 }
 @media screen and (min-width: 768px) {
@@ -1213,7 +1231,12 @@ footer > .wp-block-group > .wp-block-columns {
   }
 }
 
-@media screen and (max-width: 1080px) {
+html {
+  /* sticky header offset */
+  scroll-padding-top: calc(var(--nav-padding) * 3) !important;
+}
+
+@media screen and (max-width: 1079px) {
   /* NAV BREAKPOINT CONTROL */
   /* hamburger button */
   .wp-block-navigation__responsive-container-open {
@@ -1352,11 +1375,11 @@ header nav .wp-block-navigation-submenu__toggle {
     width: 100%;
     transform: translateX(0);
   }
-  header nav .wp-block-navigation__container .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__content,
+  header nav .wp-block-navigation__container .wp-block-navigation-item.current-menu-item:not(.is-style-button-style) > .wp-block-navigation-item__content,
   header nav .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style):hover > .wp-block-navigation-item__content {
     color: var(--wp--preset--color--contrast-3) !important;
   }
-  header nav .wp-block-navigation__container .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__content:before, header nav .wp-block-navigation__container .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__content:after,
+  header nav .wp-block-navigation__container .wp-block-navigation-item.current-menu-item:not(.is-style-button-style) > .wp-block-navigation-item__content:before, header nav .wp-block-navigation__container .wp-block-navigation-item.current-menu-item:not(.is-style-button-style) > .wp-block-navigation-item__content:after,
   header nav .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style):hover > .wp-block-navigation-item__content:before,
   header nav .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style):hover > .wp-block-navigation-item__content:after {
     opacity: 0.25;
@@ -1464,7 +1487,7 @@ header nav .wp-block-navigation-link.current-menu-item .wp-block-navigation-item
   font-weight: 900 !important;
   color: var(--wp--preset--color--contrast-3) !important;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1079px) {
   header nav .is-style-button-style {
     margin-top: 0.625rem;
     padding: 0 !important;
@@ -1486,6 +1509,9 @@ header nav .wp-block-navigation-link.current-menu-item .wp-block-navigation-item
     background-color: var(--wp--preset--color--accent-4);
     height: calc(100% + 1.5625rem);
     width: 100vw !important;
+  }
+  header nav .is-style-button-style.current-menu-item > .wp-block-navigation-item__content {
+    color: var(--wp--preset--color--white) !important;
   }
 }
 header nav .loginmenu-divider > .wp-block-navigation-item__content {
@@ -1545,6 +1571,9 @@ header nav .loginmenu-divider ~ * .wp-block-navigation-item__content .wp-block-n
     border-top-right-radius: 0 !important;
     padding-top: 0;
   }
+  header nav .is-style-button-style.current-menu-item > .wp-block-navigation-item__content {
+    color: var(--wp--preset--color--white) !important;
+  }
 }
 
 .wp-block-site-logo {
@@ -1560,6 +1589,12 @@ header.header-sticky {
   z-index: 1000;
 }
 
+@media screen and (min-width: 1080px) {
+  /* widen dropdown menus */
+  .wp-block-navigation .has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
+    min-width: 260px !important;
+  }
+}
 .category-button {
   margin-top: 1rem;
 }
@@ -2303,8 +2338,9 @@ header > .is-position-sticky {
   padding-left: var(--faq-indent);
   font-weight: 600;
 }
-.wp-block-details.is-style-faqs-green summary::marker, .wp-block-details.is-style-faqs-blue summary::marker {
-  content: "";
+.wp-block-details.is-style-faqs-green summary::marker, .wp-block-details.is-style-faqs-green summary::-webkit-details-marker, .wp-block-details.is-style-faqs-blue summary::marker, .wp-block-details.is-style-faqs-blue summary::-webkit-details-marker {
+  content: "" !important;
+  display: none !important;
 }
 .wp-block-details.is-style-faqs-green summary::before, .wp-block-details.is-style-faqs-green summary::after, .wp-block-details.is-style-faqs-blue summary::before, .wp-block-details.is-style-faqs-blue summary::after {
   content: "";
@@ -2337,7 +2373,7 @@ header > .is-position-sticky {
 }
 .wp-block-details.is-style-faqs-green[open] summary ~ *, .wp-block-details.is-style-faqs-blue[open] summary ~ * {
   animation: fadeInMoveDown 0.3s ease-in-out forwards;
-  max-height: 150px;
+  max-height: 1000px;
 }
 .wp-block-details.is-style-faqs-green {
   --faq-color: var(--wp--preset--color--contrast-2);
@@ -2684,29 +2720,25 @@ html[lang^=en] #how-we-can-help > .wp-block-columns > .wp-block-column {
 }
 
 #insurance-coverage-requirements {
-  position: relative;
-  z-index: 1;
+  position: relative !important;
+  z-index: -1;
 }
 #insurance-coverage-requirements:before {
   content: "";
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  left: 50%;
+  position: fixed;
+  right: 0;
   height: 4rem;
   width: 100vw;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzc3IiBoZWlnaHQ9IjYyIiB2aWV3Qm94PSIwIDAgMzc3IDYyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bWFzayBpZD0ibWFzazBfMjc2XzIyMDAiIHN0eWxlPSJtYXNrLXR5cGU6YWxwaGEiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIzNzciIGhlaWdodD0iNjIiPgo8cmVjdCB3aWR0aD0iMzc3IiBoZWlnaHQ9IjYyIiBmaWxsPSJ3aGl0ZSIvPgo8L21hc2s+CjxnIG1hc2s9InVybCgjbWFzazBfMjc2XzIyMDApIj4KPHBhdGggZD0iTTc2Ni44NDEgMTMuNjUwNUM3NzMuNiAxMy42NTA1IDc3OS4wOCA4LjE3MTIyIDc3OS4wOCAxLjQxMjE2VjEuNDEyMTZMODcuMTg3MyAxLjQxMjE2QzgwLjQyODMgMS40MTIxNiA3NC45NDkgNi44OTE0NiA3NC45NDkgMTMuNjUwNVYxMy42NTA1TDc2Ni44NDEgMTMuNjUwNVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yNzZfMjIwMCkiLz4KPHBhdGggZD0iTTgxNS4xODYgMzYuMzkwOUM4MjEuOTQ2IDM2LjM5MDkgODI3LjQyNSAzMC45MTE2IDgyNy40MjUgMjQuMTUyNVYyNC4xNTI1TDEzNS41MzMgMjQuMTUyNUMxMjguNzczIDI0LjE1MjUgMTIzLjI5NCAyOS42MzE4IDEyMy4yOTQgMzYuMzkwOVYzNi4zOTA5TDgxNS4xODYgMzYuMzkwOVoiIGZpbGw9InVybCgjcGFpbnQxX2xpbmVhcl8yNzZfMjIwMCkiLz4KPHBhdGggZD0iTTY5NS4xOTcgNTkuMTMxM0M3MDEuOTU2IDU5LjEzMTMgNzA3LjQzNSA1My42NTIgNzA3LjQzNSA0Ni44OTI5VjQ2Ljg5MjlIMTUuNTQyOEM4Ljc4MzcyIDQ2Ljg5MjkgMy4zMDQ0NCA1Mi4zNzIyIDMuMzA0NDQgNTkuMTMxM1Y1OS4xMzEzTDY5NS4xOTcgNTkuMTMxM1oiIGZpbGw9InVybCgjcGFpbnQyX2xpbmVhcl8yNzZfMjIwMCkiLz4KPC9nPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzI3Nl8yMjAwIiB4MT0iNzc5LjA4IiB5MT0iNy41MzEzNCIgeDI9Ijc0Ljk0OSIgeTI9IjcuNTMxMzQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agb2Zmc2V0PSIwLjQwMzQwNiIgc3RvcC1jb2xvcj0iIzAwNkZCQSIgc3RvcC1vcGFjaXR5PSIwIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNkZCQSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MV9saW5lYXJfMjc2XzIyMDAiIHgxPSI4MjcuNDI1IiB5MT0iMzAuMjcxNyIgeDI9IjEyMy4yOTQiIHkyPSIzMC4yNzE3IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIG9mZnNldD0iMC40MDM0MDYiIHN0b3AtY29sb3I9IiMwMDZGQkEiIHN0b3Atb3BhY2l0eT0iMCIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDZGQkEiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDJfbGluZWFyXzI3Nl8yMjAwIiB4MT0iNzA3LjQzNSIgeTE9IjUzLjAxMjEiIHgyPSIzLjMwNDQ0IiB5Mj0iNTMuMDEyMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBvZmZzZXQ9IjAuNDAzNDA2IiBzdG9wLWNvbG9yPSIjMDA2RkJBIiBzdG9wLW9wYWNpdHk9IjAiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA2RkJBIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==);
-  background-position: 21vw center;
+  background-position: right center;
   z-index: 0;
   background-size: 22rem;
   background-repeat: no-repeat;
+  transform: translateY(-0.5rem);
 }
 @media screen and (min-width: 768px) and (max-width: 1140px) {
   #insurance-coverage-requirements {
     padding-right: 40vw;
-  }
-  #insurance-coverage-requirements:before {
-    top: 1.5rem;
   }
 }
 @media screen and (max-width: 781px) {

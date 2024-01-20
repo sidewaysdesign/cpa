@@ -1,71 +1,59 @@
 class FAQSmoothHeightTransition {
   constructor() {
-    this.debouncedResize = this.debounce(this.setMaxHeights.bind(this), 250)
-    this.init()
+    this.details = this.getDetails();
+    this.init();
   }
 
+  getDetails() {
+    const faqs = document.querySelectorAll(".is-style-faqs");
+    return Array.from(faqs).map((faq) => {
+      const summary = faq.querySelector("summary");
+      const payload = document.createElement("div");
+      Array.from(faq.querySelectorAll("summary ~ *")).forEach((el) => {
+        payload.appendChild(el.cloneNode(true));
+        el.parentNode.removeChild(el); // Remove the original element
+      });
+      faq.insertBefore(payload, faq.children[1]); // Insert the payload div after the summary
+      return { summary, payload };
+    });
+  }
   init() {
-    window.addEventListener('resize', this.debouncedResize)
-    this.addClickListeners()
-    this.setMaxHeights()
+    this.details.forEach((detail) => {
+      detail.summary.addEventListener("click", () => this.handleSummaryClick(detail));
+      this.setMaxHeight(detail);
+      window.addEventListener("resize", () => this.setMaxHeight());
+    });
   }
 
-  setMaxHeights() {
-    const faqs = document.querySelectorAll('.is-style-faqs')
-    if (faqs.length === 0) return
+  setMaxHeight(detail) {
+    detail.payload.style.maxHeight = null; // Remove inline max-height
+    const clone = detail.payload.cloneNode(true);
+    clone.style.visibility = "hidden";
+    clone.style.display = "block";
+    document.body.appendChild(clone);
+    const height = clone.scrollHeight;
+    document.body.removeChild(clone);
 
-    faqs.forEach(faq => {
-      const elements = faq.querySelectorAll('summary ~ *')
-      elements.forEach(el => {
-        el.style.maxHeight = `${el.scrollHeight}px`
-      })
-    })
+    // Add the top margin of the first child and the bottom margin of the last child
+    const styleFirst = window.getComputedStyle(clone.children[0]);
+    const styleLast = window.getComputedStyle(clone.children[clone.children.length - 1]);
+    const marginTop = parseFloat(styleFirst.marginTop);
+    const marginBottom = parseFloat(styleLast.marginBottom);
+    const totalHeight = height + marginTop + marginBottom;
+
+    detail.payload.style.maxHeight = `${totalHeight}px`; // Set max-height to scrollHeight plus margins
   }
 
-  addClickListeners() {
-    const summaries = document.querySelectorAll('.is-style-faqs summary')
-    summaries.forEach(summary => {
-      summary.addEventListener('click', () => this.handleSummaryClick(summary))
-    })
-  }
-
-  handleSummaryClick(summary) {
-    const details = summary.parentElement
-    if (details.hasAttribute('open')) {
-      // Get computed style of the first sibling element
-      const sibling = summary.nextElementSibling
-      if (sibling) {
-        const style = window.getComputedStyle(sibling)
-        const transitionDuration = parseFloat(style.transitionDuration) * 1000 // Convert to milliseconds
-
-        setTimeout(() => {
-          let currentSibling = summary.nextElementSibling
-          while (currentSibling) {
-            currentSibling.style.maxHeight = null // Remove inline max-height
-            currentSibling = currentSibling.nextElementSibling
-          }
-        }, transitionDuration)
-      }
+  handleSummaryClick(detail) {
+    if (detail.summary.parentElement.hasAttribute("open")) {
+      const transitionDuration = parseFloat(window.getComputedStyle(detail.payload[0]).transitionDuration) * 1000;
+      setTimeout(() => {
+        detail.payload.forEach((el) => (el.style.maxHeight = null));
+      }, transitionDuration);
     } else {
-      // Apply max-heights and remove animation class
-      let sibling = summary.nextElementSibling
-      while (sibling) {
-        sibling.style.maxHeight = `${sibling.scrollHeight}px`
-        sibling = sibling.nextElementSibling
-      }
-    }
-  }
-
-  debounce(func, wait) {
-    let timeout
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout)
-        func(...args)
-      }
-      clearTimeout(timeout)
-      timeout = setTimeout(later, wait)
+      this.setMaxHeight(detail);
     }
   }
 }
-export { FAQSmoothHeightTransition }
+
+export { FAQSmoothHeightTransition };

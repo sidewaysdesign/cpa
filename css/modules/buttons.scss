@@ -10,3 +10,8 @@
     padding-right: 1.5em !important;
   }
 }
+.wp-block-button {
+  .wp-block-button__link.wp-element-button {
+    line-height: 1 !important;
+  }
+}
