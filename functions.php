@@ -200,13 +200,13 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 							// Set the current section to 'header' before the header is output
 							add_action('get_header', function() {
 								$GLOBALS['current_section'] = 'header';
-								var_dump("header");
+								// var_dump("header");
 							});
 							
 							// Set the current section to 'footer' before the footer is output
 							add_action('get_footer', function() {
 								$GLOBALS['current_section'] = 'footer';
-								var_dump("footer");
+								// var_dump("footer");
 							});
 							
 							function cpa_pattern_categories() {
@@ -300,22 +300,6 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 								if( function_exists('acf_register_block_type') ) {
 									// register a testimonial block.
 									
-									//   acf_register_block_type( array( 'name' => 'conditional-archive-title',
-									//   'title'             => __('Conditional Archive Title'),
-									//   'description'       => __('Adds title label and year depending on post type (news or article).'),
-									//   'render_template'	=> 'blocks/conditional-archive-title/conditional-archive-title.php',
-									//   'mode'			=> 'preview',
-									//   'supports'		=> [
-										//     'align'			=> false,
-										//     'anchor'		=> true,
-										//     'customClassName'	=> true,
-										//     'jsx' 			=> true,
-										//   ],
-										//   'keywords'          => array( 'conditional', 'archive', 'title' )
-										
-										// ));
-										
-										
 										acf_register_block_type( array(
 											'name'              => 'conditional-archive-sidebar',
 											'title'             => __('Conditional Archive Sidebar'),
@@ -331,16 +315,6 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 											'keywords'          => array( 'conditional', 'archive', 'sidebar' )
 										));
 										
-										// acf_register_block_type( array(
-										// 	'name'              => 'expertise-listing',
-										// 	'title'             => __('Expertise Listing'),
-										// 	'description'       => __('Auto-populated listing of team members, segmented by role.'),
-										// 	'render_template'   => 'blocks/expertise-listing/expertise-listing.php',
-										// 	'category'          => 'formatting',
-										// 	'icon'              => 'editor-ul',
-										// 	'keywords'          => array( 'expertise', 'listing' )
-										// 	)
-										// );
 										acf_register_block_type( array(
 											'name'              => 'expertise-listing',
 											'title'             => __('Alert Banner'),
@@ -365,7 +339,7 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 									$category_colors = array(
 										'article' => array('bg' => 'var(--wp--preset--color--contrast-2)', 'fg' => 'white'),
 										'report' => array('bg' => 'var(--wp--preset--color--contrast-3)', 'fg' => 'white'),
-										'default' => array('bg' => 'var(--wp--preset--color--custom-accent-yellow)', 'fg' => 'black')
+										'default' => array('bg' => 'var(--wp--preset--color--contrast)', 'fg' => 'white')
 									);
 									
 									$translation_table = array(
@@ -399,14 +373,6 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 											esc_attr($category_name_orig),
 											esc_html($category_name_orig)
 										);
-										// return sprintf(
-										// 	'<a style="" href="%s"><button style="background-color: %s; color: %s;" aria-label="Category: %s">%s</button></a>',
-										// 	$category_link,
-										// 	$category_colors['bg'],
-										// 	$category_colors['fg'],
-										// 	esc_attr($category_name_orig),
-										// 	esc_html($category_name_orig)
-										// );
 									} else {
 										$category_colors = $category_colors['default'];
 										$category_link = '#';
@@ -423,3 +389,62 @@ add_filter('the_content', 'shortcode_unautop', 100);
 
 // Trim excerpts to 20 words
 add_filter( 'excerpt_length', function() { return 40; }, 999 );
+
+
+// ***
+// Swap language template part block START
+// ***
+
+function register_dynamic_template_part_block() {
+    register_block_type('swd/template-part-swap-language', array(
+        'attributes' => array(
+            'slug' => array(
+                'type' => 'string',
+            ),
+            'area' => array(
+                'type' => 'string',
+            ),
+            'tagName' => array(
+                'type' => 'string',
+            ),
+        ),
+        'render_callback' => 'render_dynamic_template_part_block',
+    ));
+}
+add_action('init', 'register_dynamic_template_part_block');
+function render_dynamic_template_part_block($attributes, $content) {
+    $slug = $attributes['slug'];
+    $area = $attributes['area'];
+    $tagName = $attributes['tagName'];
+
+    // If the current language is French, append '-vf' to the slug
+    if (function_exists('pll_current_language') && pll_current_language() === 'fr') {
+        $slug .= '-fr';
+    }
+
+    // Create the template part block with the modified slug
+    $block = array(
+        'blockName' => 'core/template-part',
+        'attrs' => array(
+            'slug' => $slug,
+            'area' => $area,
+            'tagName' => $tagName,
+        ),
+    );
+
+    return render_block($block);
+}
+function my_theme_enqueue_block_editor_assets() {
+    wp_enqueue_script(
+        'swd-template-part-swap-language',
+        get_stylesheet_directory_uri() . '/assets/scripts/swap-language.js',
+        array('wp-blocks', 'wp-element'),
+        true
+    );
+}
+add_action('enqueue_block_editor_assets', 'my_theme_enqueue_block_editor_assets');
+
+// ***
+// Swap language template part block END
+// ***
+?>

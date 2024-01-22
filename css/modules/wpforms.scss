@@ -170,3 +170,11 @@ input[type="password"] {
     min-width: 100% !important;
   }
 }
+.wpforms-field-description {
+  color: var(--wp--preset--color--accent-5) !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.wpforms-field-limit-text {
+  color: var(--wp--preset--color--contrast) !important;
+}

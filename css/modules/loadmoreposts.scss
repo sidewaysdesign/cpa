@@ -20,9 +20,9 @@ header > .is-position-sticky {
     cursor: pointer;
     font-size: 0.92rem;
     border: 1px solid var(--wp--preset--color--contrast-2) !important;
-    padding-top: calc(0.65rem + 1px) !important;
+    padding-top: 0.65rem !important;
     padding-right: calc(1rem - 1px) !important;
-    padding-bottom: calc(0.75rem - 1px) !important;
+    padding-bottom: 0.75rem !important;
     padding-left: calc(1rem - 1px) !important;
     background-color: transparent !important;
     background-image: none;
@@ -103,7 +103,7 @@ header > .is-position-sticky {
     }
   }
 }
-
+.loadmoreposts-job-openings__button,
 .loadmoreposts-event__button,
 .loadmoreposts-post__button {
   font-size: 0.92rem;
@@ -111,6 +111,8 @@ header > .is-position-sticky {
   cursor: pointer !important;
   background-color: var(--wp--preset--color--contrast-2);
   transition: background-color 0.15s ease-in-out !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600;
 }
 .loadmoreposts-event__button {
   background-color: var(--wp--preset--color--contrast);
