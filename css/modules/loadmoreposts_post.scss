@@ -23,6 +23,12 @@
     @media (min-width: 600px) {
       flex-direction: row;
     }
+    .loadmoreposts--button {
+      .wp-block-button__link {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.7rem !important;
+      }
+    }
   }
   &__image-wrapper {
     min-width: 100%;

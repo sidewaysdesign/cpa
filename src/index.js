@@ -13,7 +13,8 @@ import { PlayPauseButton } from "./modules/PlayPauseButton";
 import { MobileMenuTopLevel } from "./modules/MobileMenuTopLevel";
 import { PersonnelNameAlignment } from "./modules/PersonnelNameAlignment";
 import { SiteEditHotkey } from "./modules/SiteEditHotkey";
-import { LinkPreventDefault } from "./modules/LinkPreventDefault.js";
+import { LinkPreventDefault } from "./modules/LinkPreventDefault";
+import { WPFormsConfPopups } from "./modules/WPFormsConfPopups";
 
 const forceMenuOpen = () => {
   const menu = document.querySelector(".wp-block-navigation__responsive-container");
@@ -86,6 +87,15 @@ const onReady = () => {
     isPreview: false,
     ariaHidden: false,
   });
+  var wpFormsConfPopups = new WPFormsConfPopups([
+    {
+      // targetSelector:
+      // popupSelector:
+
+      targetSelector: ".wpforms-container",
+      popupSelector: ".wpforms-confirmation-container-full",
+    },
+  ]);
   // var constructPopup = new ConstructPopup([{ triggerSelector: '.youtube-popup' }])
   // var awardsVideoLoader = new AwardsVideoLoader([{ targetSelector: '#videoContainer' }])
 };

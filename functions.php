@@ -300,151 +300,184 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 								if( function_exists('acf_register_block_type') ) {
 									// register a testimonial block.
 									
-										acf_register_block_type( array(
-											'name'              => 'conditional-archive-sidebar',
-											'title'             => __('Conditional Archive Sidebar'),
-											'description'       => __('Shows sidebar depending on post type (news or article).'),
-											'render_template'	=> 'blocks/conditional-archive-sidebar/conditional-archive-sidebar.php',
-											'mode'			=> 'preview',
-											'supports'		=> [
-												'align'			=> false,
-												'anchor'		=> true,
-												'customClassName'	=> true,
-												'jsx' 			=> true,
-											],
-											'keywords'          => array( 'conditional', 'archive', 'sidebar' )
-										));
-										
-										acf_register_block_type( array(
-											'name'              => 'expertise-listing',
-											'title'             => __('Alert Banner'),
-											'description'       => __('Alert Banner'),
-											'render_template'   => 'blocks/alert-banner/alert-banner.php',
-											'category'          => 'formatting',
-											'icon'              => 'editor-ul',
-											'keywords'          => array( 'alert', 'banner' )
-											)
-										);
-									}
-								}
-								
-								function render_category_block( $atts ) {
-									// Get the current post
-									$post = get_post();
-									if ($post->post_type !== 'post') { return; }
-									// Get the categories of the current post
-									$categories = get_the_category( $post->ID );
-
-									// Define the category colors and foreground colors
-									$category_colors = array(
-										'article' => array('bg' => 'var(--wp--preset--color--contrast-2)', 'fg' => 'white'),
-										'report' => array('bg' => 'var(--wp--preset--color--contrast-3)', 'fg' => 'white'),
-										'default' => array('bg' => 'var(--wp--preset--color--contrast)', 'fg' => 'white')
-									);
+									acf_register_block_type( array(
+										'name'              => 'conditional-archive-sidebar',
+										'title'             => __('Conditional Archive Sidebar'),
+										'description'       => __('Shows sidebar depending on post type (news or article).'),
+										'render_template'	=> 'blocks/conditional-archive-sidebar/conditional-archive-sidebar.php',
+										'mode'			=> 'preview',
+										'supports'		=> [
+											'align'			=> false,
+											'anchor'		=> true,
+											'customClassName'	=> true,
+											'jsx' 			=> true,
+										],
+										'keywords'          => array( 'conditional', 'archive', 'sidebar' )
+									));
 									
-									$translation_table = array(
-										'en' => array(
-											'Article' => 'Article',
-											'Report' => 'Report',
-											// Add more translations as needed
-										),
-										'fr' => array(
-											'Article' => 'Article',
-											'Report' => 'Rapport',
-											// Add more translations as needed
-										),
+									acf_register_block_type( array(
+										'name'              => 'expertise-listing',
+										'title'             => __('Alert Banner'),
+										'description'       => __('Alert Banner'),
+										'render_template'   => 'blocks/alert-banner/alert-banner.php',
+										'category'          => 'formatting',
+										'icon'              => 'editor-ul',
+										'keywords'          => array( 'alert', 'banner' )
+										)
 									);
-									if ( ! empty( $categories ) ) {
-										$category_name_orig = $categories[0]->name ? :	'';
-										$category_name = strtolower($category_name_orig);
-										$category_colors = isset($category_colors[$category_name]) ? $category_colors[$category_name] : $category_colors['default'];
-										$category_link = get_category_link( $categories[0]->term_id );
-										
-										if (function_exists('pll_current_language')) {
-											$current_language = pll_current_language();
-											if (isset($translation_table[$current_language][$category_name_orig])) {
-												$category_name = $translation_table[$current_language][$category_name_orig];
-											}
+								}
+							}
+							
+							function render_category_block( $atts ) {
+								// Get the current post
+								$post = get_post();
+								if ($post->post_type !== 'post') { return; }
+								// Get the categories of the current post
+								$categories = get_the_category( $post->ID );
+								
+								// Define the category colors and foreground colors
+								$category_colors = array(
+									'article' => array('bg' => 'var(--wp--preset--color--contrast-2)', 'fg' => 'white'),
+									'report' => array('bg' => 'var(--wp--preset--color--contrast-3)', 'fg' => 'white'),
+									'default' => array('bg' => 'var(--wp--preset--color--contrast)', 'fg' => 'white')
+								);
+								
+								$translation_table = array(
+									'en' => array(
+										'Article' => 'Article',
+										'Report' => 'Report',
+										// Add more translations as needed
+									),
+									'fr' => array(
+										'Article' => 'Article',
+										'Report' => 'Rapport',
+										// Add more translations as needed
+									),
+								);
+								if ( ! empty( $categories ) ) {
+									$category_name_orig = $categories[0]->name ? :	'';
+									$category_name = strtolower($category_name_orig);
+									$category_colors = isset($category_colors[$category_name]) ? $category_colors[$category_name] : $category_colors['default'];
+									$category_link = get_category_link( $categories[0]->term_id );
+									
+									if (function_exists('pll_current_language')) {
+										$current_language = pll_current_language();
+										if (isset($translation_table[$current_language][$category_name_orig])) {
+											$category_name = $translation_table[$current_language][$category_name_orig];
 										}
-										return sprintf(
-											'<button style="background-color: %s; color: %s;" aria-label="Category: %s">%s</button>',
-											$category_colors['bg'],
-											$category_colors['fg'],
-											esc_attr($category_name_orig),
-											esc_html($category_name_orig)
-										);
-									} else {
-										$category_colors = $category_colors['default'];
-										$category_link = '#';
 									}
-									
-									// Return the block's HTML with the category color, foreground color and link
+									return sprintf(
+										'<button style="background-color: %s; color: %s;" aria-label="Category: %s">%s</button>',
+										$category_colors['bg'],
+										$category_colors['fg'],
+										esc_attr($category_name_orig),
+										esc_html($category_name_orig)
+									);
+								} else {
+									$category_colors = $category_colors['default'];
+									$category_link = '#';
 								}
 								
-								add_shortcode('category_block', 'render_category_block');
-
-								remove_filter('the_content', 'wpautop');
-add_filter('the_content', 'wpautop', 99);
-add_filter('the_content', 'shortcode_unautop', 100);
-
-// Trim excerpts to 20 words
-add_filter( 'excerpt_length', function() { return 40; }, 999 );
-
-
-// ***
-// Swap language template part block START
-// ***
-
-function register_dynamic_template_part_block() {
-    register_block_type('swd/template-part-swap-language', array(
-        'attributes' => array(
-            'slug' => array(
-                'type' => 'string',
-            ),
-            'area' => array(
-                'type' => 'string',
-            ),
-            'tagName' => array(
-                'type' => 'string',
-            ),
-        ),
-        'render_callback' => 'render_dynamic_template_part_block',
-    ));
-}
-add_action('init', 'register_dynamic_template_part_block');
-function render_dynamic_template_part_block($attributes, $content) {
-    $slug = $attributes['slug'];
-    $area = $attributes['area'];
-    $tagName = $attributes['tagName'];
-
-    // If the current language is French, append '-vf' to the slug
-    if (function_exists('pll_current_language') && pll_current_language() === 'fr') {
-        $slug .= '-fr';
-    }
-
-    // Create the template part block with the modified slug
-    $block = array(
-        'blockName' => 'core/template-part',
-        'attrs' => array(
-            'slug' => $slug,
-            'area' => $area,
-            'tagName' => $tagName,
-        ),
-    );
-
-    return render_block($block);
-}
-function my_theme_enqueue_block_editor_assets() {
-    wp_enqueue_script(
-        'swd-template-part-swap-language',
-        get_stylesheet_directory_uri() . '/assets/scripts/swap-language.js',
-        array('wp-blocks', 'wp-element'),
-        true
-    );
-}
-add_action('enqueue_block_editor_assets', 'my_theme_enqueue_block_editor_assets');
-
-// ***
-// Swap language template part block END
-// ***
-?>
+								// Return the block's HTML with the category color, foreground color and link
+							}
+							
+							add_shortcode('category_block', 'render_category_block');
+							
+							remove_filter('the_content', 'wpautop');
+							add_filter('the_content', 'wpautop', 99);
+							add_filter('the_content', 'shortcode_unautop', 100);
+							
+							// Trim excerpts to 20 words
+							add_filter( 'excerpt_length', function() { return 40; }, 999 );
+							
+							
+							// ***
+							// Swap language template part block START
+							// ***
+							
+							function register_dynamic_template_part_block() {
+								register_block_type('swd/template-part-swap-language', array(
+									'attributes' => array(
+										'slug' => array(
+											'type' => 'string',
+										),
+										'area' => array(
+											'type' => 'string',
+										),
+										'tagName' => array(
+											'type' => 'string',
+										),
+									),
+									'render_callback' => 'render_dynamic_template_part_block',
+								));
+							}
+							add_action('init', 'register_dynamic_template_part_block');
+							function render_dynamic_template_part_block($attributes, $content) {
+								$slug = $attributes['slug'];
+								$area = $attributes['area'];
+								$tagName = $attributes['tagName'];
+								
+								// If the current language is French, append '-vf' to the slug
+								if (function_exists('pll_current_language') && pll_current_language() === 'fr') {
+									$slug .= '-fr';
+								}
+								
+								// Create the template part block with the modified slug
+								$block = array(
+									'blockName' => 'core/template-part',
+									'attrs' => array(
+										'slug' => $slug,
+										'area' => $area,
+										'tagName' => $tagName,
+									),
+								);
+								
+								return render_block($block);
+							}
+							function my_theme_enqueue_block_editor_assets() {
+								wp_enqueue_script(
+									'swd-template-part-swap-language',
+									get_stylesheet_directory_uri() . '/assets/scripts/swap-language.js',
+									array('wp-blocks', 'wp-element'),
+									true
+								);
+							}
+							add_action('enqueue_block_editor_assets', 'my_theme_enqueue_block_editor_assets');
+							
+							// ***
+							// Swap language template part block END
+							// ***
+							
+							function change_wpforms_send_to_email($fields, $entry, $form_data) {
+								$outputSelectorValue = $form_data['id'] == 2818;
+								// Check if this is the form you want to change
+								if ($form_data['id'] == '2818') {
+									error_log(var_export($outputSelectorValue,true));
+									$targetfield_name = 'Output Selector';
+									$valuereference_arr = [
+										'First Choice' => 'mailtest9@sidewaysdesign.com', 
+										'Second Choice' => 'mailtest10@sidewaysdesign.com', 
+										'Third Choice' => 'mailtest11@sidewaysdesign.com'
+									];
+									// loop through all fields and find the one with the name 'Output Selector'
+									foreach ($fields as $field) {
+										if ($field['name'] === $targetfield_name) {
+											$outputSelectorValue = $field['value_raw'];
+											break;
+										}
+									}
+									
+									// Change the "send to" email address if the output selector value matches one of the choices
+									if (isset($valuereference_arr[$outputSelectorValue])) {
+										$form_data['settings']['notifications'][1]['email'] = $valuereference_arr[$outputSelectorValue];
+										$form_data['settings']['notifications'][1]['sender_address'] = $valuereference_arr[$outputSelectorValue];
+									}
+								}
+								return $form_data;
+							}
+							add_filter('wpforms_process', 'change_wpforms_send_to_email', 10, 3);
+							
+							
+							
+							
+							?>
