@@ -25,7 +25,13 @@
   background-color: white !important;
   background-size: var(--logosize) !important;
   background-position: calc(var(--vpad) * 0.9375) 50% !important;
+  transition:
+    left 0.15s ease-in-out,
+    right 0.15s ease-in-out,
+    padding 0.15s ease-in-out,
+    background-size 0.15s ease-in-out !important;
   & > * {
+    transition: all 0.15s ease-in-out;
     padding-left: calc(var(--logosize) + var(--vpad) * 1) !important;
     text-align: left !important;
   }
