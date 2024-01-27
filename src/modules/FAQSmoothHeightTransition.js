@@ -26,6 +26,7 @@ class FAQSmoothHeightTransition {
   }
 
   setMaxHeight(detail) {
+    if (!detail.payload) return;
     detail.payload.style.maxHeight = null; // Remove inline max-height
     const clone = detail.payload.cloneNode(true);
     clone.style.visibility = "hidden";

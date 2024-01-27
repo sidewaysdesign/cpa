@@ -58,8 +58,8 @@ const onReady = () => {
   ]);
   var mobileMenuTopLevel = new MobileMenuTopLevel([
     {
-      targfetSelector:
-        ".wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.has-child",
+      targetSelector:
+        ".wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.has-child > a",
     },
   ]);
   var linkPreventDefault = new LinkPreventDefault([
@@ -89,9 +89,6 @@ const onReady = () => {
   });
   var wpFormsConfPopups = new WPFormsConfPopups([
     {
-      // targetSelector:
-      // popupSelector:
-
       targetSelector: ".wpforms-container",
       popupSelector: ".wpforms-confirmation-container-full",
     },

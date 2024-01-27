@@ -1,6 +1,7 @@
 .category-button {
   margin-top: 1rem;
   p {
+    max-width: 80px;
     display: block;
     margin: none;
     position: relative;
@@ -31,7 +32,6 @@
     }
   }
   button {
-    min-width: 8rem;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -50,5 +50,9 @@
     overflow: visible;
     text-transform: none;
     -webkit-appearance: button;
+    min-width: 6.5rem;
+    @media screen and (min-width: 768px) {
+      min-width: 8rem;
+    }
   }
 }

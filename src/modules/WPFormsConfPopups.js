@@ -13,7 +13,6 @@ class WPFormsConfPopups {
     targets.forEach((target) => {
       this.applyMinHeight(target);
       let formHTML = target.innerHTML; // Make formHTML mutable
-
       let submitButton = target.querySelector('input[type="submit"], button[type="submit"]');
       if (submitButton) {
         submitButton.addEventListener("click", () => {

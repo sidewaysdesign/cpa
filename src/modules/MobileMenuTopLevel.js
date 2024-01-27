@@ -16,10 +16,8 @@ class MobileMenuTopLevel {
       ["click", "touchend"].forEach((eventType) => {
         item.addEventListener(eventType, (e) => {
           e.preventDefault();
-          // find the URL for the first child link, and navigate to it
-          const firstLink = item.querySelector("a");
-          if (firstLink) {
-            window.location.href = firstLink.href;
+          if (item.href && item.href !== "#") {
+            window.location.href = item.href;
           }
         });
       });
