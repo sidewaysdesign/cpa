@@ -5,7 +5,7 @@ class FAQSmoothHeightTransition {
   }
 
   getDetails() {
-    const faqs = document.querySelectorAll(".is-style-faqs");
+    const faqs = document.querySelectorAll(".is-style-faqs, .details-claimsprocess .wp-block-details");
     return Array.from(faqs).map((faq) => {
       const summary = faq.querySelector("summary");
       const payload = document.createElement("div");

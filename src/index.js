@@ -28,7 +28,7 @@ const onReady = () => {
   if (location.hostname === "localhost" || location.hostname.includes(".local")) {
     document.body.classList.add("localhost");
     var siteEditHotkey = new SiteEditHotkey();
-    // const delayedMenuOpen = setTimeout(forceMenuOpen, 750);
+    const delayedMenuOpen = setTimeout(forceMenuOpen, 750);
   }
   var handleCurrentMenuItem = new HandleCurrentMenuItem();
 

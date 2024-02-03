@@ -8,5 +8,5 @@
   }
 }
 .homepage-hero {
-  height: calc(100vh - var(--nav-minheight));
+  height: calc(100vh - var(--nav-minheight) + var(--nav-overhang));
 }
