@@ -10,11 +10,12 @@ import { MobileMenu } from "./modules/MobileMenu";
 import { ScrollAnimations } from "./modules/ScrollAnimations";
 import { AdjustContentHeight } from "./modules/AdjustContentHeight";
 import { PlayPauseButton } from "./modules/PlayPauseButton";
-import { MobileMenuTopLevel } from "./modules/MobileMenuTopLevel";
+// import { MobileMenuTopLevel } from "./modules/MobileMenuTopLevel";
 import { PersonnelNameAlignment } from "./modules/PersonnelNameAlignment";
 import { SiteEditHotkey } from "./modules/SiteEditHotkey";
 import { LinkPreventDefault } from "./modules/LinkPreventDefault";
 import { WPFormsConfPopups } from "./modules/WPFormsConfPopups";
+import { LoginMenuMatchWidth } from "./modules/LoginMenuMatchWidth";
 
 const forceMenuOpen = () => {
   const menu = document.querySelector(".wp-block-navigation__responsive-container");
@@ -49,6 +50,7 @@ const onReady = () => {
       action: "fadeup",
     },
   ]);
+  var loginMenuMatchWidth = new LoginMenuMatchWidth();
   var socialCopyToClipboardLink = new SocialCopyToClipboardLink([{ targetSelector: ".wp-block-social-links" }]);
   var addAriaHidden = new AddAriaHidden([{ targetSelector: ".is-style-aria-hidden" }]);
   var faqSmoothHeightTransition = new FAQSmoothHeightTransition();
@@ -56,12 +58,12 @@ const onReady = () => {
   var personnelNameAlignment = new PersonnelNameAlignment([
     { unitSelector: ".personnel-unit--wrapper", targetSelector: ".personnelcard--titlearea" },
   ]);
-  var mobileMenuTopLevel = new MobileMenuTopLevel([
-    {
-      targetSelector:
-        ".wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.has-child > a",
-    },
-  ]);
+  // var mobileMenuTopLevel = new MobileMenuTopLevel([
+  //   {
+  //     targetSelector:
+  //       ".wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.has-child > a",
+  //   },
+  // ]);
   var linkPreventDefault = new LinkPreventDefault([
     {
       targetSelector: ".wp-block-navigation-item.is-style-button-style > a[href='#']",

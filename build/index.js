@@ -21,11 +21,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_ScrollAnimations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/ScrollAnimations */ "./src/modules/ScrollAnimations.js");
 /* harmony import */ var _modules_AdjustContentHeight__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/AdjustContentHeight */ "./src/modules/AdjustContentHeight.js");
 /* harmony import */ var _modules_PlayPauseButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/PlayPauseButton */ "./src/modules/PlayPauseButton.js");
-/* harmony import */ var _modules_MobileMenuTopLevel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/MobileMenuTopLevel */ "./src/modules/MobileMenuTopLevel.js");
-/* harmony import */ var _modules_PersonnelNameAlignment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/PersonnelNameAlignment */ "./src/modules/PersonnelNameAlignment.js");
-/* harmony import */ var _modules_SiteEditHotkey__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/SiteEditHotkey */ "./src/modules/SiteEditHotkey.js");
-/* harmony import */ var _modules_LinkPreventDefault__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/LinkPreventDefault */ "./src/modules/LinkPreventDefault.js");
-/* harmony import */ var _modules_WPFormsConfPopups__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/WPFormsConfPopups */ "./src/modules/WPFormsConfPopups.js");
+/* harmony import */ var _modules_PersonnelNameAlignment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/PersonnelNameAlignment */ "./src/modules/PersonnelNameAlignment.js");
+/* harmony import */ var _modules_SiteEditHotkey__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/SiteEditHotkey */ "./src/modules/SiteEditHotkey.js");
+/* harmony import */ var _modules_LinkPreventDefault__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/LinkPreventDefault */ "./src/modules/LinkPreventDefault.js");
+/* harmony import */ var _modules_WPFormsConfPopups__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/WPFormsConfPopups */ "./src/modules/WPFormsConfPopups.js");
+/* harmony import */ var _modules_LoginMenuMatchWidth__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/LoginMenuMatchWidth */ "./src/modules/LoginMenuMatchWidth.js");
 
 
 
@@ -38,6 +38,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { MobileMenuTopLevel } from "./modules/MobileMenuTopLevel";
 
 
 
@@ -51,10 +52,10 @@ const forceMenuOpen = () => {
   body.classList.add("has-modal-open");
 };
 const onReady = () => {
-  /* eslint-disable */console.log(...oo_oo(`1546567443_27_2_27_70_4`, location.hostname, location.hostname.includes(".local")));
+  /* eslint-disable */console.log(...oo_oo(`131503430_28_2_28_70_4`, location.hostname, location.hostname.includes(".local")));
   if (location.hostname === "localhost" || location.hostname.includes(".local")) {
     document.body.classList.add("localhost");
-    var siteEditHotkey = new _modules_SiteEditHotkey__WEBPACK_IMPORTED_MODULE_14__.SiteEditHotkey();
+    var siteEditHotkey = new _modules_SiteEditHotkey__WEBPACK_IMPORTED_MODULE_13__.SiteEditHotkey();
     const delayedMenuOpen = setTimeout(forceMenuOpen, 750);
   }
   var handleCurrentMenuItem = new _modules_HandleCurrentMenuItem__WEBPACK_IMPORTED_MODULE_7__.HandleCurrentMenuItem();
@@ -72,6 +73,7 @@ const onReady = () => {
     targetSelector: ".wp-block-post-content >*:not(:first-child, .scrollindicator-link, .has-custom-accent-yellow-background-color, #alert-banner)",
     action: "fadeup"
   }]);
+  var loginMenuMatchWidth = new _modules_LoginMenuMatchWidth__WEBPACK_IMPORTED_MODULE_16__.LoginMenuMatchWidth();
   var socialCopyToClipboardLink = new _modules_SocialCopyToClipboardLink__WEBPACK_IMPORTED_MODULE_3__.SocialCopyToClipboardLink([{
     targetSelector: ".wp-block-social-links"
   }]);
@@ -80,14 +82,17 @@ const onReady = () => {
   }]);
   var faqSmoothHeightTransition = new _modules_FAQSmoothHeightTransition__WEBPACK_IMPORTED_MODULE_5__.FAQSmoothHeightTransition();
   var insertFooterPaddingElement = new _modules_InsertFooterPaddingElement__WEBPACK_IMPORTED_MODULE_6__.InsertFooterPaddingElement();
-  var personnelNameAlignment = new _modules_PersonnelNameAlignment__WEBPACK_IMPORTED_MODULE_13__.PersonnelNameAlignment([{
+  var personnelNameAlignment = new _modules_PersonnelNameAlignment__WEBPACK_IMPORTED_MODULE_12__.PersonnelNameAlignment([{
     unitSelector: ".personnel-unit--wrapper",
     targetSelector: ".personnelcard--titlearea"
   }]);
-  var mobileMenuTopLevel = new _modules_MobileMenuTopLevel__WEBPACK_IMPORTED_MODULE_12__.MobileMenuTopLevel([{
-    targetSelector: ".wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.has-child > a"
-  }]);
-  var linkPreventDefault = new _modules_LinkPreventDefault__WEBPACK_IMPORTED_MODULE_15__.LinkPreventDefault([{
+  // var mobileMenuTopLevel = new MobileMenuTopLevel([
+  //   {
+  //     targetSelector:
+  //       ".wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.has-child > a",
+  //   },
+  // ]);
+  var linkPreventDefault = new _modules_LinkPreventDefault__WEBPACK_IMPORTED_MODULE_14__.LinkPreventDefault([{
     targetSelector: ".wp-block-navigation-item.is-style-button-style > a[href='#']"
   }]);
   var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_8__.MobileMenu({
@@ -107,7 +112,7 @@ const onReady = () => {
     isPreview: false,
     ariaHidden: false
   });
-  var wpFormsConfPopups = new _modules_WPFormsConfPopups__WEBPACK_IMPORTED_MODULE_16__.WPFormsConfPopups([{
+  var wpFormsConfPopups = new _modules_WPFormsConfPopups__WEBPACK_IMPORTED_MODULE_15__.WPFormsConfPopups([{
     targetSelector: ".wpforms-container",
     popupSelector: ".wpforms-confirmation-container-full"
   }]);
@@ -610,6 +615,41 @@ class LinkPreventDefault {
 
 /***/ }),
 
+/***/ "./src/modules/LoginMenuMatchWidth.js":
+/*!********************************************!*\
+  !*** ./src/modules/LoginMenuMatchWidth.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   LoginMenuMatchWidth: () => (/* binding */ LoginMenuMatchWidth)
+/* harmony export */ });
+class LoginMenuMatchWidth {
+  constructor() {
+    const loginMenu = document.querySelector(".wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .is-style-button-style.wp-block-navigation-submenu");
+    if (!loginMenu) return;
+    const button = loginMenu.querySelector(".wp-block-navigation-item__content");
+    const container = loginMenu.querySelector(".wp-block-navigation__submenu-container");
+    if (!button || !container) return;
+
+    // .closest(".is-style-button-style.wp-block-navigation-submenu")
+    // .querySelector(".wp-block-navigation__submenu-container");
+
+    button.addEventListener("mouseenter", function () {
+      if (!document.body.classList.contains("has-modal-open")) {
+        container.style.setProperty("max-width", `${button.offsetWidth}px`, "important");
+      }
+    });
+    button.addEventListener("mouseleave", function () {
+      container.style.width = "";
+    });
+  }
+}
+
+/***/ }),
+
 /***/ "./src/modules/MobileMenu.js":
 /*!***********************************!*\
   !*** ./src/modules/MobileMenu.js ***!
@@ -734,47 +774,6 @@ function oo_te() {
   } catch (e) {}
 }
 ; /*eslint unicorn/no-abusive-eslint-disable:,eslint-comments/disable-enable-pair:,eslint-comments/no-unlimited-disable:,eslint-comments/no-aggregating-enable:,eslint-comments/no-duplicate-disable:,eslint-comments/no-unused-disable:,eslint-comments/no-unused-enable:,*/
-
-/***/ }),
-
-/***/ "./src/modules/MobileMenuTopLevel.js":
-/*!*******************************************!*\
-  !*** ./src/modules/MobileMenuTopLevel.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MobileMenuTopLevel: () => (/* binding */ MobileMenuTopLevel)
-/* harmony export */ });
-// .wp-block-details.is-style-popup-menu
-
-class MobileMenuTopLevel {
-  constructor(params) {
-    this.events(params);
-  }
-  events(params) {
-    const paramsArray = [].concat(params);
-    paramsArray.forEach(p => this.initModule(p));
-  }
-  initModule({
-    targetSelector
-  }) {
-    const topLevelMenuItems = document.querySelectorAll(targetSelector);
-    topLevelMenuItems.forEach(item => {
-      ["click", "touchend"].forEach(eventType => {
-        item.addEventListener(eventType, e => {
-          e.preventDefault();
-          if (item.href && item.href !== "#") {
-            window.location.href = item.href;
-          }
-        });
-      });
-    });
-  }
-}
-
 
 /***/ }),
 
