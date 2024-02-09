@@ -81,11 +81,13 @@ class PlayPauseButton {
           if (videoPlayer.paused) {
             videoPlayer.play();
             ppb.innerHTML = pauseButton;
-            ppb.classList.remove("paused").setAttribute("aria-label", pauseAriaAction);
+            ppb.classList.remove("paused");
+            ppb.setAttribute("aria-label", pauseAriaAction);
           } else {
             videoPlayer.pause();
             ppb.innerHTML = playButton;
-            ppb.classList.add("paused").setAttribute("aria-label", playAriaAction);
+            ppb.classList.add("paused");
+            ppb.setAttribute("aria-label", playAriaAction);
           }
         });
 

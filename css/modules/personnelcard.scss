@@ -1,7 +1,6 @@
 @import "breakpoints";
 
 :root {
-  --wp--preset--color--tertiary: orange;
   --inner-margin: 0.875rem;
   --radius-tlbr-small: 0.625rem;
   --radius-tlbr-medium: 1rem;
@@ -11,6 +10,7 @@
   --radius-tlbr-huge: 3.75rem 0 3.75rem 0;
   --font-light: "Metropolis Light", sans-serif;
   --font-medium: "Metropolis Medium", sans-serif;
+  --wp--preset--color--tertiary: var(--wp--preset--color--accent-4);
   @media screen and (min-width: 500px) {
     --inner-margin: 1.5rem;
   }

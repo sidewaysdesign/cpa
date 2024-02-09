@@ -106,7 +106,10 @@ header {
           &,
           & > .wp-block-navigation-item__content,
           & .wp-block-navigation-item__label {
-            font-size: 0.94rem !important;
+            // they don't want it smaller now
+            // font-size: 0.94rem !important;
+            font-size: var(--wp--preset--font-size--medium);
+            // margin-bottom: 0.5rem;
           }
         }
       }
@@ -429,7 +432,9 @@ header {
 
     .loginmenu-divider {
       & > .wp-block-navigation-item__content {
-        font-size: 0.88rem !important;
+        // font-size: 0.88rem !important;
+        font-size: var(--wp--preset--font-size--medium);
+
         margin: 0.125em 0 0.375em !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;

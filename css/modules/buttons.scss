@@ -15,3 +15,24 @@
     line-height: 1 !important;
   }
 }
+
+.wp-block-button__link {
+  &:focus {
+    outline: 1px dotted var(--wp--preset--color--contrast-3);
+    outline-offset: -2px;
+  }
+}
+.wp-block-navigation-item__content,
+.custom-logo-link {
+  &:focus {
+    outline: 1px dotted var(--wp--preset--color--contrast-3);
+    outline-offset: 3px;
+  }
+}
+.wp-block-navigation-submenu .wp-block-navigation-item__content {
+  &:focus {
+    @media screen and (max-width: 1076px) {
+      outline-offset: -4px;
+    }
+  }
+}
