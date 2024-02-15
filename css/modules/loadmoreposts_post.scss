@@ -67,7 +67,7 @@
       gap: 1.5rem;
 
       &:first-child:nth-last-child(odd) {
-        gap: 1.5rem; // horizontal column gap
+        gap: 1.5rem !important; // horizontal column gap
         .loadmoreposts-post__main {
           padding-top: 0;
         }

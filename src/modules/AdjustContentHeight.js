@@ -17,12 +17,12 @@ class AdjustContentHeight {
     rootTargets.forEach((rootTarget, sliderSelector) => {
       if (rootTarget) {
         const targets = rootTarget.querySelectorAll(module.sliderSelector);
+        const uniqueId = "unique-id-" + Math.random().toString(36).substring(2, 15); // Generate unique ID here
 
         targets.forEach((target) => {
           if (target.children.length > 0) {
-            // Delay the execution of AdjustContentHeight by 2 seconds
             setTimeout(() => {
-              this.AdjustContentHeight(target, module.sliderSelector, module.innerSelector);
+              this.AdjustContentHeight(target, module.sliderSelector, module.innerSelector, uniqueId);
             }, this.delayTime);
           } else {
             setTimeout(() => {
@@ -31,13 +31,12 @@ class AdjustContentHeight {
           }
         });
 
-        // Add a debounced resize event listener that waits 2 seconds before calling AdjustContentHeight
         window.addEventListener(
           "resize",
           this.debounce(() => {
             targets.forEach((target) => {
               setTimeout(() => {
-                this.AdjustContentHeight(target, module.sliderSelector, module.innerSelector);
+                this.AdjustContentHeight(target, module.sliderSelector, module.innerSelector, uniqueId);
               }, this.delayTime);
             });
           }, 250),
@@ -46,12 +45,11 @@ class AdjustContentHeight {
     });
   }
 
-  AdjustContentHeight(target, sliderSelector, innerSelector) {
-    const uniqueId = "unique-id-" + Math.random().toString(36).substring(2, 15);
+  AdjustContentHeight(target, sliderSelector, innerSelector, uniqueId) {
     const slider = target.closest(sliderSelector);
     const children = Array.from(slider.querySelectorAll(innerSelector));
-
-    const heights = children.map((child) => this.getNaturalHeight(child));
+    const widths = children.map((child) => child.offsetWidth);
+    const heights = children.map((child, index) => this.measureHeightWithClone(child, widths[index]));
     const maxHeight = Math.max(...heights);
 
     // Find the root ancestor with the attribute 'data-swiper-options'
@@ -80,14 +78,30 @@ class AdjustContentHeight {
       style.setAttribute("data-for", `${uniqueId}`);
       document.head.appendChild(style);
       style.textContent = `
-      #${uniqueId} .wp-block-gutsliders-slide {
-        height: ${maxHeight + parentPaddingTop + parentPaddingBottom}px !important;
-      }
-      #${uniqueId} ${sliderSelector} {
-        height: ${maxHeight + parentPaddingTop + parentPaddingBottom}px !important;
-      }
-    `;
+        #${uniqueId} .wp-block-gutsliders-slide {
+          height: ${maxHeight + parentPaddingTop + parentPaddingBottom}px !important;
+        }
+        #${uniqueId} ${sliderSelector} {
+          height: ${maxHeight + parentPaddingTop + parentPaddingBottom}px !important;
+        }
+        `;
     }
+  }
+  measureHeightWithClone(target, width) {
+    // Clone the target and move it offscreen
+    const clone = target.cloneNode(true);
+    clone.style.position = "absolute";
+    clone.style.visibility = "hidden";
+    clone.style.width = `${width}px`;
+    document.body.appendChild(clone);
+
+    // Measure the height
+    const height = clone.offsetHeight;
+
+    // Remove the clone from the document
+    document.body.removeChild(clone);
+
+    return height;
   }
   getNaturalHeight(target) {
     // Clone the target element

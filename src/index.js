@@ -16,6 +16,7 @@ import { SiteEditHotkey } from "./modules/SiteEditHotkey";
 import { LinkPreventDefault } from "./modules/LinkPreventDefault";
 import { WPFormsConfPopups } from "./modules/WPFormsConfPopups";
 import { LoginMenuMatchWidth } from "./modules/LoginMenuMatchWidth";
+import { WPFormsMaxWords } from "./modules/WPFormsMaxWords";
 
 const forceMenuOpen = () => {
   const menu = document.querySelector(".wp-block-navigation__responsive-container");
@@ -51,6 +52,7 @@ const onReady = () => {
     },
   ]);
   var loginMenuMatchWidth = new LoginMenuMatchWidth();
+  var wPFormsMaxWords = new WPFormsMaxWords();
   var socialCopyToClipboardLink = new SocialCopyToClipboardLink([{ targetSelector: ".wp-block-social-links" }]);
   var addAriaHidden = new AddAriaHidden([{ targetSelector: ".is-style-aria-hidden" }]);
   var faqSmoothHeightTransition = new FAQSmoothHeightTransition();
@@ -75,6 +77,7 @@ const onReady = () => {
     openClass: "active",
     menuIsOpenClass: "has-modal-open",
     menuCloseButtonSelector: ".wp-block-navigation__responsive-container-close",
+    passThroughClass: "mobile-click",
   });
 
   var adjustContentHeight = new AdjustContentHeight([

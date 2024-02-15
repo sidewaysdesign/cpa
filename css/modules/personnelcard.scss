@@ -313,11 +313,13 @@
     display: flex;
     flex-direction: column;
     max-width: calc(100vw - var(--inner-margin) * 2);
+    max-height: calc(100vh - 3rem);
+    max-height: calc(100svh - 3rem);
+
     @include atMd {
       width: 500px;
     }
     @include uptoSmmd {
-      max-height: calc(100vh - var(--navheight) - var(--margin-mobile) * 2);
       top: var(--navheight);
     }
     @include atMd {
