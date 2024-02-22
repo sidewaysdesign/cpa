@@ -74,6 +74,40 @@
     }
   }
 }
+html[lang*="fr"] #howcanwehelp {
+  & > .wp-block-columns {
+    @media screen and (min-width: 600px) and (max-width: 1079px) {
+      flex-wrap: wrap !important;
+    }
+    & > .wp-block-column {
+      @media screen and (min-width: 600px) and (max-width: 1079px) {
+        flex-basis: 100% !important;
+      }
+    }
+  }
+}
+#howcanwehelp {
+  & > .wp-block-columns {
+    &:first-child {
+      @media screen and (max-width: 1079px) {
+        .wp-block-columns {
+          // heading plus equals sign
+          // outline: 2px solid blue;
+          & > .wp-block-column {
+            &:first-child {
+              .wp-block-heading {
+                font-size: clamp(50px, 9vw, 70px) !important;
+              }
+            }
+            &:last-child {
+              max-width: 75px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 // IN-PAGE POPUP MENU
 

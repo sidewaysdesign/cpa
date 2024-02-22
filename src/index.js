@@ -17,6 +17,8 @@ import { LinkPreventDefault } from "./modules/LinkPreventDefault";
 import { WPFormsConfPopups } from "./modules/WPFormsConfPopups";
 import { LoginMenuMatchWidth } from "./modules/LoginMenuMatchWidth";
 import { WPFormsMaxWords } from "./modules/WPFormsMaxWords";
+import { ForceTabindexNoHref } from "./modules/ForceTabindexNoHref";
+import { ReleaseNavMenuFocus } from "./modules/ReleaseNavMenuFocus";
 
 const forceMenuOpen = () => {
   const menu = document.querySelector(".wp-block-navigation__responsive-container");
@@ -33,6 +35,7 @@ const onReady = () => {
     // const delayedMenuOpen = setTimeout(forceMenuOpen, 750);
   }
   var handleCurrentMenuItem = new HandleCurrentMenuItem();
+  var forceTabindexNoHref = new ForceTabindexNoHref();
 
   var personnelPopup = new PersonnelPopup([
     {
@@ -59,6 +62,13 @@ const onReady = () => {
   var insertFooterPaddingElement = new InsertFooterPaddingElement();
   var personnelNameAlignment = new PersonnelNameAlignment([
     { unitSelector: ".personnel-unit--wrapper", targetSelector: ".personnelcard--titlearea" },
+  ]);
+  var releaseNavMenuFocus = new ReleaseNavMenuFocus([
+    {
+      menuTopSelector:
+        ".wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-submenu",
+      targetSelector: "a[href*='#']",
+    },
   ]);
   // var mobileMenuTopLevel = new MobileMenuTopLevel([
   //   {

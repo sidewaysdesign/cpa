@@ -38,6 +38,7 @@ class MobileMenu {
             e.preventDefault();
             e.stopPropagation();
           }
+          // trigger.nextSibling.style.border = "2px solid red";
           if (trigger.parentElement.classList.contains(openClass)) {
             trigger.nextSibling.setAttribute("aria-expanded", "false");
             trigger.parentNode.classList.remove(openClass);

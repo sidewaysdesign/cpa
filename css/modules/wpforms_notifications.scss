@@ -85,7 +85,7 @@
     &:hover {
       opacity: 1;
     }
-    &:focus {
+    &:focus-visible {
       outline: 1px dotted var(--cpa-green);
     }
   }

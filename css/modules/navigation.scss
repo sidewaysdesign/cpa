@@ -17,7 +17,7 @@
     --nav-padding: 0.25rem;
     --nav-minheight: 90px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1320px) {
     --logo-width: inherit;
     --nav-padding: 1.5rem;
     --nav-minheight: 104px;
@@ -91,7 +91,7 @@ header {
       display: none !important;
     }
     .wp-block-navigation__container {
-      @media screen and (min-width: 1080px) and (max-width: 1280px) {
+      @media screen and (min-width: 1080px) and (max-width: 1320px) {
         --wp--preset--font-size--medium: 1.02rem;
         column-gap: 1rem !important;
         // letter-spacing: -0.015em;
@@ -107,7 +107,7 @@ header {
             font-size: 1.22rem !important;
           }
         }
-        @media screen and (min-width: 1080px) and (max-width: 1280px) {
+        @media screen and (min-width: 1080px) and (max-width: 1320px) {
           /* TOP-LEVEL NAV ITEM FONT-SIZE UP TO 1024PX */
           &,
           & > .wp-block-navigation-item__content,
@@ -136,7 +136,7 @@ header {
               height: 2px;
               left: 0;
               right: 0;
-              top: -4px;
+              top: -12px;
               background-color: var(--wp--preset--color--contrast-3);
             }
           }
@@ -157,7 +157,7 @@ header {
         }
       }
     }
-    @media screen and (min-width: 1080px) and (max-width: 1280px) {
+    @media screen and (min-width: 1080px) and (max-width: 1320px) {
       .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style) {
         & > .wp-block-navigation-item__content {
           padding-top: 1.875rem;
@@ -171,7 +171,7 @@ header {
         }
       }
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1320px) {
       .wp-block-navigation__container > .wp-block-navigation-item:not(.is-style-button-style) {
         & > .wp-block-navigation-item__content {
           &:before {
@@ -289,7 +289,16 @@ header {
       }
       .wp-block-navigation-item__content {
         padding-top: 1.625rem !important;
-        // font-size: 1.5rem !important;
+      }
+      .wp-block-navigation__responsive-container-content
+        > .wp-block-navigation__container
+        > .wp-block-navigation-item
+        > .wp-block-navigation-item__content {
+        margin-top: 0.625rem !important;
+        padding-top: 1rem !important;
+        padding-bottom: 0.625rem !important;
+        margin-bottom: -0.875rem !important;
+        cursor: pointer;
       }
       .wp-block-navigation-item.is-style-button-style {
         .wp-block-navigation-item__content {
@@ -402,7 +411,7 @@ header {
         }
       }
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1320px) {
       .wp-block-navigation__submenu-container {
         .wp-block-navigation-item:last-child {
           .wp-block-navigation__submenu-container {
@@ -414,14 +423,14 @@ header {
         margin-left: calc(100% + 1px);
       }
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1320px) {
       .wp-block-navigation__submenu-container {
         .wp-block-navigation-item__content {
           padding: 0.6875rem 1.5rem !important;
         }
       }
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1320px) {
       .wp-block-navigation__submenu-container {
         transform: translate(-50%, 1.25em); // menu offset
       }
@@ -432,7 +441,7 @@ header {
           cursor: default;
         }
         .wp-block-navigation-item__label {
-          font-weight: 900 !important;
+          font-weight: 700 !important;
           color: var(--wp--preset--color--contrast-3) !important;
         }
       }
@@ -537,6 +546,14 @@ header.header-sticky {
 }
 @media screen and (min-width: 1080px) {
   /* widen dropdown menus */
+  .wp-block-site-logo,
+  nav {
+    // flex: 0 0 auto;
+  }
+
+  nav {
+    width: 100%;
+  }
   .wp-block-navigation
     .has-child:not(.open-on-click):not(.is-style-button-style):hover
     > .wp-block-navigation__submenu-container {
@@ -545,6 +562,9 @@ header.header-sticky {
   /* space out menu */
   .wp-block-navigation__responsive-container-content > .wp-block-navigation__container {
     width: 100%;
+    flex-basis: 100% !important;
+    min-width: 100% !important;
+
     justify-content: space-between;
     // padding-left: 2rem;
     &::before {

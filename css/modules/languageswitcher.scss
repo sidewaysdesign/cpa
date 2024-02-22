@@ -40,7 +40,7 @@
     &:hover a {
       text-decoration: underline;
     }
-    &:focus a {
+    &:focus-visible a {
       outline: 1px dotted var(--wp--preset--color--contrast-3);
       outline-offset: 3px;
     }

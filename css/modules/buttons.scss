@@ -15,22 +15,28 @@
     line-height: 1 !important;
   }
 }
+html[lang*="fr"] {
+  nav .is-style-button-style .wp-block-navigation-item__label,
+  .wp-block-button .wp-block-button__link.wp-element-button {
+    line-height: 1.2 !important;
+  }
+}
 
 .wp-block-button__link {
-  &:focus {
+  &:focus-visible {
     outline: 1px dotted var(--wp--preset--color--contrast-3);
     outline-offset: -2px;
   }
 }
 .wp-block-navigation-item__content,
 .custom-logo-link {
-  &:focus {
+  &:focus-visible {
     outline: 1px dotted var(--wp--preset--color--contrast-3);
     outline-offset: 3px;
   }
 }
 .wp-block-navigation-submenu .wp-block-navigation-item__content {
-  &:focus {
+  &:focus-visible {
     @media screen and (max-width: 1076px) {
       outline-offset: -4px;
     }
