@@ -316,7 +316,7 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 									));
 									
 									acf_register_block_type( array(
-										'name'              => 'expertise-listing',
+										'name'              => 'alert-banner',
 										'title'             => __('Alert Banner'),
 										'description'       => __('Alert Banner'),
 										'render_template'   => 'blocks/alert-banner/alert-banner.php',
@@ -478,6 +478,16 @@ if ( ! function_exists( 'cpa_block_styles' ) ) :
 							add_filter('wpforms_process', 'change_wpforms_send_to_email', 10, 3);
 							
 							
-							
+add_action('pre_get_posts', 'filter_query_language');
+
+function filter_query_language($query) {
+    if (!is_admin() && $query->is_main_query() && function_exists('pll_current_language')) {
+        $current_language = pll_current_language();
+        $query->set('lang', $current_language);
+    }
+}
+
+
+
 							
 							?>

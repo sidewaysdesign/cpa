@@ -20,12 +20,18 @@ class ReleaseNavMenuFocus {
 
       targetElements.forEach((targetElement) => {
         ["click", "touchend"].forEach((eventType) => {
+          // Skip if the targetElement has the class "has-modal-open"
           targetElement.addEventListener(eventType, () => this.clearMenu(menuTopElement, targetElement));
         });
       });
     });
   }
   clearMenu(menuTopElement, targetElement) {
+    if (document.documentElement.classList.contains("has-modal-open")) {
+      // do not worry about clearing menu if the mobile modal is open
+      return;
+    }
+
     const directParentMenu = targetElement.closest(".wp-block-navigation__submenu-container");
     if (!directParentMenu) return;
 

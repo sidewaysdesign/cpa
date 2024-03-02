@@ -56,7 +56,7 @@ const onReady = () => {
   ]);
   var loginMenuMatchWidth = new LoginMenuMatchWidth();
   var wPFormsMaxWords = new WPFormsMaxWords();
-  var socialCopyToClipboardLink = new SocialCopyToClipboardLink([{ targetSelector: ".wp-block-social-links" }]);
+  var socialCopyToClipboardLink = new SocialCopyToClipboardLink([{ targetSelector: "main .wp-block-social-links" }]);
   var addAriaHidden = new AddAriaHidden([{ targetSelector: ".is-style-aria-hidden" }]);
   var faqSmoothHeightTransition = new FAQSmoothHeightTransition();
   var insertFooterPaddingElement = new InsertFooterPaddingElement();
